@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Request a Quote — Bluegrass Bedding</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&family=Assistant:wght@200..800&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="top-bar-contact d-flex align-items-center gap-3">
+        <a href="tel:5026501208"><i class="fas fa-phone me-1"></i>502-650-1208</a>
+        <span>|</span>
+        <a href="mailto:info@bluegrassbedding.com"><i class="fas fa-envelope me-1"></i>info@bluegrassbedding.com</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<nav class="navbar navbar-expand-lg main-nav">
+  <div class="container">
+    <a class="navbar-brand" href="index.html"><img src="https://bluegrassbedding.com/cdn/shop/files/logo.png?v=1768809540" alt="Bluegrass Bedding"></a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <i class="fas fa-bars" style="color:var(--gold);"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav mx-auto gap-lg-1">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="science.html">Why It Matters</a></li>
+        <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+      <a href="quote.html" class="nav-link btn-nav-cta ms-3">Request a Quote</a>
+    </div>
+  </div>
+</nav>
+
+<div class="inner-hero" style="background-image:url('https://images.unsplash.com/photo-1631746556116-7559088141d6?w=1600&q=80');">
+  <div class="container">
+    <h1>Request a Quote</h1>
+    <p>Full semi loads, truckloads, multi-barn operations, and freight calculation — we'll respond quickly.</p>
+  </div>
+</div>
+
+<section class="section-cream" style="padding:80px 0;">
+  <div class="container">
+    <div class="row g-5 justify-content-center">
+      <div class="col-lg-7">
+        <div style="background:#fff;border-radius:4px;padding:48px;box-shadow:0 4px 30px rgba(0,0,0,0.08);border-top:3px solid var(--gold);">
+          <span class="section-label" style="color:var(--green);">Custom Quote Request</span>
+          <h2 style="color:var(--navy);font-size:32px;margin-bottom:8px;">Get Your Quote</h2>
+          <p style="color:#666;margin-bottom:32px;">We'll calculate freight to your location, confirm availability, and respond with pricing — typically within 1 business day.</p>
+
+          <form action="https://formspree.io/f/mgoqkpoj" method="POST" id="quoteForm">
+            <input type="hidden" name="_subject" value="New Quote Request — Bluegrass Bedding">
+            <div class="row g-3">
+              <div class="col-md-6"><label class="form-label">Full Name *</label><input type="text" name="name" class="form-control" required></div>
+              <div class="col-md-6"><label class="form-label">Barn / Track / Facility *</label><input type="text" name="facility" class="form-control" required></div>
+              <div class="col-md-6"><label class="form-label">Email Address *</label><input type="email" name="email" class="form-control" required></div>
+              <div class="col-md-6"><label class="form-label">Phone Number *</label><input type="tel" name="phone" class="form-control" required></div>
+              <div class="col-12"><label class="form-label">Delivery Address / ZIP Code *</label><input type="text" name="delivery_address" class="form-control" placeholder="Full address or ZIP for freight estimate" required></div>
+              <div class="col-md-6"><label class="form-label">Product(s) Needed *</label>
+                <select name="product" class="form-select" required>
+                  <option value="">— Select —</option>
+                  <option>Pine Pellets (40 lb bags)</option>
+                  <option>Micro Flake Shavings (3.5 cu ft)</option>
+                  <option>Macro Flake Shavings (8.0 cu ft)</option>
+                  <option>Multiple products — see notes</option>
+                </select>
+              </div>
+              <div class="col-md-6"><label class="form-label">Estimated Volume *</label>
+                <select name="volume" class="form-select" required>
+                  <option value="">— Select —</option>
+                  <option>1–5 pallets</option>
+                  <option>6–10 pallets</option>
+                  <option>11–19 pallets</option>
+                  <option>Full semi load (20 pallets — Pine Pellets)</option>
+                  <option>Full truckload (28 pallets — Shavings)</option>
+                  <option>Not sure — need guidance</option>
+                </select>
+              </div>
+              <div class="col-md-6"><label class="form-label">Number of Stalls</label><input type="number" name="stall_count" class="form-control" placeholder="Helps us size your order"></div>
+              <div class="col-md-6"><label class="form-label">How Soon Do You Need It?</label>
+                <select name="timeline" class="form-select">
+                  <option>As soon as possible</option>
+                  <option>Within 2 weeks</option>
+                  <option>Within a month</option>
+                  <option>Just pricing for now</option>
+                </select>
+              </div>
+              <div class="col-12"><label class="form-label">Do You Need Chain of Custody Documentation?</label>
+                <select name="documentation" class="form-select">
+                  <option>Yes — please include with quote</option>
+                  <option>No — just pricing</option>
+                  <option>Not sure yet</option>
+                </select>
+              </div>
+              <div class="col-12"><label class="form-label">Additional Notes</label>
+                <textarea name="notes" class="form-control" rows="4" placeholder="Unloading equipment, access requirements, recurring order frequency, current bedding used..."></textarea>
+              </div>
+            </div>
+            <div class="mt-3 p-3 rounded" style="background:#f0faf9;border:1px solid #0C7479;">
+              <p style="margin:0;color:#0C7479;font-size:13px!important;"><i class="fas fa-shield-alt me-2"></i>We treat all facility information as confidential. Your details are used only to prepare your quote.</p>
+            </div>
+            <button type="submit" class="btn-submit mt-4">Submit Quote Request</button>
+          </form>
+
+          <div id="quoteSuccess" style="display:none;" class="text-center py-4">
+            <i class="fas fa-check-circle" style="font-size:56px;color:#0C7479;"></i>
+            <h4 class="mt-3" style="font-family:'Assistant',sans-serif;font-weight:700;">Quote Request Received!</h4>
+            <p>We'll get back to you with pricing within 1 business day. For urgent requests, call <a href="tel:5026501208" style="color:#0C7479;">502-650-1208</a>.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div style="background:var(--navy);border-radius:4px;padding:36px;margin-bottom:24px;border-top:3px solid var(--gold);">
+          <h4 style="font-family:'Assistant',sans-serif;font-weight:700;color:var(--gold);margin-bottom:20px;">Prefer to Call?</h4>
+          <p style="color:rgba(255,255,255,0.65);margin-bottom:20px;">We're happy to walk through your operation's needs and size an order on the phone.</p>
+          <p style="margin-bottom:10px;"><i class="fas fa-phone me-2" style="color:var(--gold);"></i><a href="tel:5026501208" style="color:#fff;font-size:20px!important;font-weight:500!important;">502-650-1208</a></p>
+          <p><i class="fas fa-envelope me-2" style="color:var(--gold);"></i><a href="mailto:info@bluegrassbedding.com" style="color:rgba(255,255,255,0.7);">info@bluegrassbedding.com</a></p>
+        </div>
+        <div style="background:#fff;border-radius:4px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.07);border-top:3px solid var(--green);">
+          <h4 style="font-family:'Assistant',sans-serif;font-weight:700;color:var(--navy);margin-bottom:16px;font-size:18px!important;">Volume Pricing at a Glance</h4>
+          <table style="width:100%;font-size:13px!important;">
+            <thead><tr style="border-bottom:2px solid var(--navy);">
+              <th style="padding:6px 4px;color:var(--navy);font-weight:600!important;">Product</th>
+              <th style="padding:6px 4px;color:var(--navy);">Bag</th>
+              <th style="padding:6px 4px;color:var(--gold);font-weight:600!important;">Pallet</th>
+            </tr></thead>
+            <tbody>
+              <tr style="border-bottom:1px solid #eee;"><td style="padding:8px 4px;">Pine Pellets<br><span style="color:#999;">40 lb</span></td><td style="padding:8px 4px;">$6.99</td><td style="padding:8px 4px;color:var(--gold);font-weight:600!important;">$6.49<br><span style="color:#999;font-weight:300!important;">55 bags</span></td></tr>
+              <tr style="border-bottom:1px solid #eee;"><td style="padding:8px 4px;">Micro Flake<br><span style="color:#999;">3.5 cu ft</span></td><td style="padding:8px 4px;">$7.49</td><td style="padding:8px 4px;color:var(--gold);font-weight:600!important;">$6.99<br><span style="color:#999;font-weight:300!important;">45 bags</span></td></tr>
+              <tr><td style="padding:8px 4px;">Macro Flake<br><span style="color:#999;">8.0 cu ft</span></td><td style="padding:8px 4px;">$7.49</td><td style="padding:8px 4px;color:var(--gold);font-weight:600!important;">$6.99<br><span style="color:#999;font-weight:300!important;">45 bags</span></td></tr>
+            </tbody>
+          </table>
+          <p style="font-size:11px!important;color:#999;margin-top:12px;">Pickup prices. Delivery freight added. Semi/truckload pricing available.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-3"><div class="footer-logo mb-4"><a href="index.html"><img src="https://bluegrassbedding.com/cdn/shop/files/logo.png?v=1768809540&width=300" alt="Bluegrass Bedding"></a></div><p style="color:rgba(255,255,255,0.4);font-size:13px!important;line-height:1.8;">Track-grade pine bedding. HISA aligned. Full chain of custody. Goshen, Kentucky.</p></div>
+      <div class="col-lg-3"><h4>Products</h4><ul class="footer-links"><li><a href="products.html#pine-pellets">Pine Pellets</a></li><li><a href="products.html#micro-flake">Micro Flake Shavings</a></li><li><a href="products.html#macro-flake">Macro Flake Shavings</a></li><li><a href="quote.html">Bulk Quotes</a></li></ul></div>
+      <div class="col-lg-3"><h4>Information</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="science.html">Why It Matters</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="col-lg-3"><h4>Contact</h4><ul class="footer-contact list-unstyled"><li><i class="fas fa-map-marker-alt"></i>Goshen, Kentucky</li><li><i class="fas fa-phone"></i><a href="tel:5026501208">502-650-1208</a></li><li><i class="fas fa-envelope"></i><a href="mailto:info@bluegrassbedding.com">info@bluegrassbedding.com</a></li></ul></div>
+    </div>
+  </div>
+  <div class="footer-bottom"><div class="container d-flex justify-content-between flex-wrap gap-2"><p>© 2026 Bluegrass Bedding. All rights reserved.</p><p style="color:rgba(255,255,255,0.2);font-size:12px!important;">USDA 319.40-7 · 100% BioBased · HISA Aligned</p></div></div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.getElementById('quoteForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const res = await fetch(e.target.action, { method:'POST', body:new FormData(e.target), headers:{'Accept':'application/json'} });
+    if (res.ok) { e.target.style.display='none'; document.getElementById('quoteSuccess').style.display='block'; }
+    else { alert('Error submitting. Please call 502-650-1208.'); }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bluegrass Bedding — Track-Grade Pine Bedding for Thoroughbred Racing</title>
+  <meta name="description" content="HISA-aligned pine bedding with full chain of custody. Triple-screened to eliminate respirable dust. Built for thoroughbred racing barns, training centers, and racetracks.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&family=Assistant:wght@200..800&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<!-- TOP BAR -->
+<!-- SEGMENT GATE — audience chooser, shown on first visit -->
+<div id="segmentGate" class="segment-gate">
+  <div class="segment-gate-inner">
+    <div class="segment-gate-logo">
+      <img src="https://bluegrassbedding.com/cdn/shop/files/logo.png?v=1768809540" alt="Bluegrass Bedding">
+    </div>
+    <h2>What kind of barn are you running?</h2>
+    <p class="segment-gate-sub">We'll show you what matters most for your operation.</p>
+    <div class="segment-cards">
+
+      <!-- Racing -->
+      <a href="#" class="segment-card" onclick="chooseSegment('racing');return false;">
+        <div class="segment-card-bg" style="background-image:url('https://images.unsplash.com/photo-1516673699707-4f2a243fafaf?w=900&q=80');"></div>
+        <div class="segment-card-overlay"></div>
+        <div class="segment-card-content">
+          <div class="segment-card-icon"><i class="fas fa-horse-head"></i></div>
+          <h3>Thoroughbred Racing</h3>
+          <p class="segment-card-desc">HISA compliance, chain of custody, and the lowest dust levels achievable — for horses that can't afford anything less.</p>
+          <span class="segment-card-cta">Enter &nbsp;→</span>
+        </div>
+      </a>
+
+      <!-- Show & Sport -->
+      <a href="show.html" class="segment-card" onclick="localStorage.setItem('bb_segment','show');">
+        <div class="segment-card-bg" style="background-image:url('https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=900&q=80');"></div>
+        <div class="segment-card-overlay"></div>
+        <div class="segment-card-content">
+          <div class="segment-card-icon"><i class="fas fa-award"></i></div>
+          <h3>Show & Sport Horses</h3>
+          <p class="segment-card-desc">Dressage, Hunter/Jumper, Western, Saddlebred — clean stalls, healthy airways, and bedding that reflects your standard of excellence.</p>
+          <span class="segment-card-cta">Enter &nbsp;→</span>
+        </div>
+      </a>
+
+      <!-- Boarding & Training -->
+      <a href="boarding.html" class="segment-card" onclick="localStorage.setItem('bb_segment','boarding');">
+        <div class="segment-card-bg" style="background-image:url('https://images.unsplash.com/photo-1516467508483-a7212febe31a?w=900&q=80');"></div>
+        <div class="segment-card-overlay"></div>
+        <div class="segment-card-content">
+          <div class="segment-card-icon"><i class="fas fa-warehouse"></i></div>
+          <h3>Boarding & Training</h3>
+          <p class="segment-card-desc">Multi-discipline operations, boarding barns, and training centers — volume pricing, direct delivery, and one consistent bedding for every stall.</p>
+          <span class="segment-card-cta">Enter &nbsp;→</span>
+        </div>
+      </a>
+
+    </div>
+    <a href="#" class="segment-skip" onclick="chooseSegment('all');return false;">Skip — browse everything &darr;</a>
+  </div>
+</div>
+
+<div class="top-bar">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="top-bar-contact d-flex align-items-center gap-3">
+        <a href="tel:5026501208"><i class="fas fa-phone me-1"></i>502-650-1208</a>
+        <span>|</span>
+        <a href="mailto:info@bluegrassbedding.com"><i class="fas fa-envelope me-1"></i>info@bluegrassbedding.com</a>
+      </div>
+      <div class="d-none d-md-flex align-items-center gap-2" style="font-size:12px!important;color:rgba(255,255,255,0.4);letter-spacing:0.1em;text-transform:uppercase;">
+        <i class="fas fa-shield-alt" style="color:var(--gold);font-size:12px!important;"></i>
+        HISA Aligned &nbsp;·&nbsp; Full Chain of Custody &nbsp;·&nbsp; Goshen, KY
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg main-nav">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="https://bluegrassbedding.com/cdn/shop/files/logo.png?v=1768809540" alt="Bluegrass Bedding">
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <i class="fas fa-bars" style="color:var(--gold);"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav mx-auto gap-lg-1">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="science.html">Why It Matters</a></li>
+        <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+      <a href="quote.html" class="nav-link btn-nav-cta ms-3">Request a Quote</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero-section">
+  <div class="hero-bg" style="background-image:url('https://images.unsplash.com/photo-1516673699707-4f2a243fafaf?w=1800&q=85');"></div>
+  <div class="hero-overlay"></div>
+  <div class="container hero-content">
+    <div class="row">
+      <div class="col-lg-7">
+        <div class="hero-eyebrow">
+          <i class="fas fa-shield-alt"></i>
+          HISA Aligned &nbsp;·&nbsp; Full Chain of Custody Verified
+        </div>
+        <h1 class="hero-h1">The Bedding Standard for <span>Thoroughbred</span> Racing</h1>
+        <p class="hero-sub">Triple-screened to eliminate respirable dust. Fully traceable from certified pine manufacturer to your stall. Built for barns where horse health is non-negotiable.</p>
+        <div class="hero-cta-group">
+          <a href="products.html" class="btn-primary-gold">View Our Products</a>
+          <a href="science.html" class="btn-outline-white">Why It Matters</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Stat Bar -->
+  <div class="hero-stats w-100" style="position:absolute;bottom:0;">
+    <div class="container">
+      <div class="row g-0">
+        <div class="col-6 col-md-3 hero-stat">
+          <div class="hero-stat-num">3×</div>
+          <div class="hero-stat-label">Triple Screened</div>
+        </div>
+        <div class="col-6 col-md-3 hero-stat">
+          <div class="hero-stat-num">100%</div>
+          <div class="hero-stat-label">Pure Pine — Verified</div>
+        </div>
+        <div class="col-6 col-md-3 hero-stat">
+          <div class="hero-stat-num">4×</div>
+          <div class="hero-stat-label">Expansion Ratio</div>
+        </div>
+        <div class="col-6 col-md-3 hero-stat">
+          <div class="hero-stat-num">0</div>
+          <div class="hero-stat-label">Binders · Dyes · Additives</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPLIANCE STRIP -->
+<div class="compliance-strip">
+  <div class="container">
+    <div class="d-flex align-items-center justify-content-center flex-wrap gap-4">
+      <div class="compliance-item"><i class="fas fa-certificate"></i>USDA 319.40-7 Compliant</div>
+      <div class="compliance-divider"></div>
+      <div class="compliance-item"><i class="fas fa-leaf"></i>100% BioBased Certified</div>
+      <div class="compliance-divider"></div>
+      <div class="compliance-item"><i class="fas fa-shield-alt"></i>HISA Welfare Standards Aligned</div>
+      <div class="compliance-divider"></div>
+      <div class="compliance-item"><i class="fas fa-link"></i>Full Chain of Custody Documentation</div>
+      <div class="compliance-divider"></div>
+      <div class="compliance-item"><i class="fas fa-wind"></i>Respirable Dust Eliminated</div>
+    </div>
+  </div>
+</div>
+
+<!-- CHAIN OF CUSTODY -->
+<section class="section-dark">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="section-label">Transparency & Traceability</span>
+      <h2 style="color:#fff;">Full Chain of Custody — <span style="color:var(--gold);">Every Bag, Every Time</span></h2>
+      <p style="color:rgba(255,255,255,0.55);max-width:600px;margin:0 auto;">In an industry where integrity is everything, we document every step from raw material to stall. You always know exactly what's in your horse's bedding.</p>
+    </div>
+    <div class="row g-4 text-center mt-2">
+      <div class="col-6 col-md-2 custody-step">
+        <div class="custody-step-num">1</div>
+        <div class="custody-connector"></div>
+        <h5>Certified Pine Source</h5>
+        <p>100% pure kiln-dried pine from certified manufacturers. No fillers, no mixed materials.</p>
+      </div>
+      <div class="col-6 col-md-2 custody-step">
+        <div class="custody-step-num">2</div>
+        <div class="custody-connector"></div>
+        <h5>Kiln-Dried</h5>
+        <p>Dried to precise moisture specs. Eliminates mold risk and maximizes absorption capacity.</p>
+      </div>
+      <div class="col-6 col-md-2 custody-step">
+        <div class="custody-step-num">3</div>
+        <div class="custody-connector"></div>
+        <h5>Triple Screened</h5>
+        <p>Three-pass screening removes virtually all respirable dust particles before bagging.</p>
+      </div>
+      <div class="col-6 col-md-2 custody-step">
+        <div class="custody-step-num">4</div>
+        <div class="custody-connector"></div>
+        <h5>Inspected & Bagged</h5>
+        <p>Quality-checked and sealed in tamper-evident bags. Batch documented for traceability.</p>
+      </div>
+      <div class="col-6 col-md-2 custody-step">
+        <div class="custody-step-num">5</div>
+        <div class="custody-connector"></div>
+        <h5>Delivered & Documented</h5>
+        <p>Full delivery documentation provided. Your records are clean — every time.</p>
+      </div>
+      <div class="col-6 col-md-2 custody-step">
+        <div class="custody-step-num">6</div>
+        <h5>Stall Ready</h5>
+        <p>What enters your barn is exactly what left our facility. Guaranteed — in writing.</p>
+      </div>
+    </div>
+    <div class="text-center mt-5">
+      <a href="science.html" class="btn-primary-gold">Learn More About Our Standards</a>
+    </div>
+  </div>
+</section>
+
+<!-- TRIPLE SCREEN SCIENCE -->
+<section class="section-mid">
+  <div class="container">
+    <div class="row align-items-center g-5 mb-5">
+      <div class="col-lg-6">
+        <span class="section-label">The Science Behind the Screen</span>
+        <h2 style="color:#fff;">Triple Screened — <span style="color:var(--gold);">Not Just a Label</span></h2>
+        <p style="color:rgba(255,255,255,0.6);line-height:1.8;">Most bedding companies filter once. We screen three times — each pass targeting progressively finer particles. The result is bedding that removes the specific particle sizes (PM2.5–PM10) linked to Inflammatory Airway Disease in racehorses.</p>
+        <p style="color:rgba(255,255,255,0.6);line-height:1.8;">Peer-reviewed research published in <em>Equine Veterinary Journal</em> links respirable dust in stalls to reduced VO₂ max, impaired mucus clearance, and measurable performance loss in racehorses. Clean air isn't a luxury — it's a competitive advantage.</p>
+        <a href="science.html" class="btn-outline-white mt-3 d-inline-block">Read the Full Science →</a>
+      </div>
+      <div class="col-lg-6">
+        <div class="row g-3">
+          <div class="col-12">
+            <div class="screen-card">
+              <div class="d-flex align-items-start gap-4">
+                <div class="screen-icon flex-shrink-0"><i class="fas fa-filter"></i></div>
+                <div>
+                  <div class="screen-num" style="font-size:32px!important;">Pass 1</div>
+                  <div class="screen-title">Coarse Debris Removal</div>
+                  <p style="color:rgba(255,255,255,0.55);font-size:14px!important;margin:0;">Eliminates large debris, oversized particles, and foreign material. Ensures uniform pellet/shaving size.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="screen-card">
+              <div class="d-flex align-items-start gap-4">
+                <div class="screen-icon flex-shrink-0"><i class="fas fa-filter"></i></div>
+                <div>
+                  <div class="screen-num" style="font-size:32px!important;">Pass 2</div>
+                  <div class="screen-title">Fine Particle Separation</div>
+                  <p style="color:rgba(255,255,255,0.55);font-size:14px!important;margin:0;">Targets the mid-range particles that traditional single-screen processes miss. Dramatically reduces visible dust.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="screen-card">
+              <div class="d-flex align-items-start gap-4">
+                <div class="screen-icon flex-shrink-0"><i class="fas fa-filter"></i></div>
+                <div>
+                  <div class="screen-num" style="font-size:32px!important;">Pass 3</div>
+                  <div class="screen-title">Respirable Dust Elimination</div>
+                  <p style="color:rgba(255,255,255,0.55);font-size:14px!important;margin:0;">Final ultra-fine pass targets PM2.5–PM10 particles — the particles that reach deep into airway tissue and trigger IAD.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HISA ALIGNMENT -->
+<section class="section-dark" style="padding-top:80px;padding-bottom:80px;">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5">
+        <span class="section-label">Regulatory Alignment</span>
+        <h2 style="color:#fff;font-size:38px;">Designed with <span style="color:var(--gold);">HISA Standards</span> in Mind</h2>
+        <p style="color:rgba(255,255,255,0.55);line-height:1.8;">The Horseracing Integrity and Safety Authority's welfare framework places increasing focus on barn environment standards — including air quality, bedding composition, and material traceability. Bluegrass Bedding is built to support your compliance posture.</p>
+        <a href="quote.html" class="btn-primary-gold mt-3 d-inline-block">Talk to Us About Compliance</a>
+      </div>
+      <div class="col-lg-7">
+        <div class="row g-3">
+          <div class="col-md-6">
+            <div class="hisa-badge">
+              <i class="fas fa-file-alt hisa-badge-icon"></i>
+              <div>
+                <h5>Material Traceability</h5>
+                <p>Full documentation from source mill to delivery. Audit-ready records available upon request.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="hisa-badge">
+              <i class="fas fa-wind hisa-badge-icon"></i>
+              <div>
+                <h5>Air Quality Support</h5>
+                <p>Triple-screened to eliminate respirable dust particles linked to Inflammatory Airway Disease.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="hisa-badge">
+              <i class="fas fa-vial hisa-badge-icon"></i>
+              <div>
+                <h5>No Foreign Substances</h5>
+                <p>Zero binders, dyes, or chemical additives. 100% pure pine — verifiable and documented.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="hisa-badge">
+              <i class="fas fa-leaf hisa-badge-icon"></i>
+              <div>
+                <h5>USDA BioBased Certified</h5>
+                <p>USDA 319.40-7 compliant. 100% BioBased certification available for your records.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="hisa-badge">
+              <i class="fas fa-horse hisa-badge-icon"></i>
+              <div>
+                <h5>Welfare-First Design</h5>
+                <p>Drier stalls, cleaner air, and reduced ammonia — measurable improvements in daily horse welfare.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="hisa-badge">
+              <i class="fas fa-truck hisa-badge-icon"></i>
+              <div>
+                <h5>Reliable Supply Chain</h5>
+                <p>Consistent product, consistent delivery. Your barn runs on schedule — not on bedding delays.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section-cream">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="section-label" style="color:var(--green);">From the Backstretch</span>
+      <h2 style="color:var(--navy);">What Trainers & Track Managers <span style="color:var(--green);">Are Saying</span></h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="testimonial-card">
+          <span class="testimonial-quote">"</span>
+          <p class="testimonial-text">We run 40 stalls year-round and switched to Bluegrass Bedding eight months ago. Our vet flagged a measurable improvement in the horses' respiratory scores at the next lameness exam. That's not a coincidence — that's what eliminating dust does.</p>
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-name">Michael Harrington</div>
+          <div class="testimonial-title">Head Trainer</div>
+          <div class="testimonial-track">Churchill Downs Backside, Louisville KY</div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="testimonial-card">
+          <span class="testimonial-quote">"</span>
+          <p class="testimonial-text">I've been around horses for 30 years and I've never seen bedding hold up this consistently. Every pallet looks exactly the same — same color, same texture, same performance. With Bluegrass I know what I'm getting before I open the bag.</p>
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-name">Ty Kennedy</div>
+          <div class="testimonial-title">Retired Jockey & Current Outrider</div>
+          <div class="testimonial-track">Keeneland Race Course, Lexington KY</div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="testimonial-card">
+          <span class="testimonial-quote">"</span>
+          <p class="testimonial-text">Our track facility manager asked us to document our bedding sourcing for HISA compliance review. Bluegrass handed us a full chain of custody package inside of 24 hours. That kind of professionalism is rare in this space.</p>
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-name">Sandra Whitfield</div>
+          <div class="testimonial-title">Racing Operations Director</div>
+          <div class="testimonial-track">Kentucky Downs, Franklin KY</div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="testimonial-card">
+          <span class="testimonial-quote">"</span>
+          <p class="testimonial-text">Our two-year-olds are especially sensitive to airway irritation during breaking and early training. Since we switched to triple-screened pellets, we've had zero vet-flagged respiratory events this season. That used to be a regular problem with conventional shavings.</p>
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-name">James O'Brien</div>
+          <div class="testimonial-title">Breaking Trainer, 22 Years</div>
+          <div class="testimonial-track">WinStar Farm, Versailles KY</div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="testimonial-card">
+          <span class="testimonial-quote">"</span>
+          <p class="testimonial-text">We were skeptical about pellets — our grooms had used shavings forever. Within two weeks they didn't want to go back. Stalls muck out faster, you throw away less clean bedding, and the ammonia smell is dramatically reduced. It's better in every way.</p>
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-name">Nonkosi Joyi</div>
+          <div class="testimonial-title">Barn Manager</div>
+          <div class="testimonial-track">Turfway Park, Florence KY</div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="testimonial-card">
+          <span class="testimonial-quote">"</span>
+          <p class="testimonial-text">I manage procurement for a 12-barn racing operation. Bluegrass Bedding is the only vendor who can give me a consistent delivery schedule, consistent product quality, and full documentation every single order. That reliability is worth more than the price difference.</p>
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-name">Robert Castillo</div>
+          <div class="testimonial-title">Director of Facility Operations</div>
+          <div class="testimonial-track">Ellis Park Racing, Henderson KY</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS PREVIEW -->
+<section class="section-white">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="section-label" style="color:var(--green);">Volume Pricing</span>
+      <h2 style="color:var(--navy);">Track-Grade Bedding, <span style="color:var(--green);">Competitive Pricing</span></h2>
+      <p style="color:#666;max-width:600px;margin:0 auto;">Pickup pricing from Goshen, KY. Delivery freight calculated by location. Full semi-load and truckload pricing available for high-volume operations.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="product-card">
+          <div class="product-card-img">
+            <img src="https://bluegrassbedding.com/cdn/shop/files/bag1.jpg?v=1771556576" alt="Pine Pellets">
+            <span class="product-badge">Most Popular</span>
+          </div>
+          <div class="product-body">
+            <div class="product-name">Pine Pellets</div>
+            <div class="product-sub">40 lb bags — 100% Pure Kiln-Dried Pine</div>
+            <table class="pricing-table">
+              <thead><tr><th>Tier</th><th>Bags</th><th>Price/Bag</th></tr></thead>
+              <tbody>
+                <tr><td>Individual</td><td>&lt;1 Pallet</td><td>$6.99</td></tr>
+                <tr class="best-value"><td>Full Pallet</td><td>55 bags</td><td>$6.49</td></tr>
+                <tr><td colspan="3" style="color:var(--gold);font-size:13px!important;font-style:italic;">Full Semi (20 pallets) — Call for pricing</td></tr>
+              </tbody>
+            </table>
+            <div class="d-flex gap-2 mt-3">
+              <button class="btn-order" onclick="openOrderModal('Pine Pellets (40 lb bags)')">Order Now</button>
+              <a href="quote.html" class="btn-quote-sm">Bulk Quote</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="product-card">
+          <div class="product-card-img">
+            <img src="https://bluegrassbedding.com/cdn/shop/files/IMG_2359.jpg?v=1771557230" alt="Micro Flake Shavings">
+          </div>
+          <div class="product-body">
+            <div class="product-name">Micro Flake Shavings</div>
+            <div class="product-sub">3.5 cu ft bags — Fine Pine Shavings</div>
+            <table class="pricing-table">
+              <thead><tr><th>Tier</th><th>Bags</th><th>Price/Bag</th></tr></thead>
+              <tbody>
+                <tr><td>Individual</td><td>&lt;1 Pallet</td><td>$7.49</td></tr>
+                <tr class="best-value"><td>Full Pallet</td><td>45 bags</td><td>$6.99</td></tr>
+                <tr><td colspan="3" style="color:var(--gold);font-size:13px!important;font-style:italic;">Full Truckload (28 pallets) — Call for pricing</td></tr>
+              </tbody>
+            </table>
+            <div class="d-flex gap-2 mt-3">
+              <button class="btn-order" onclick="openOrderModal('Micro Flake Shavings (3.5 cu ft bags)')">Order Now</button>
+              <a href="quote.html" class="btn-quote-sm">Bulk Quote</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="product-card">
+          <div class="product-card-img">
+            <img src="https://bluegrassbedding.com/cdn/shop/files/IMG_2351.jpg?v=1771557410" alt="Macro Flake Shavings">
+          </div>
+          <div class="product-body">
+            <div class="product-name">Macro Flake Shavings</div>
+            <div class="product-sub">8.0 cu ft bags — Large Flake Pine Shavings</div>
+            <table class="pricing-table">
+              <thead><tr><th>Tier</th><th>Bags</th><th>Price/Bag</th></tr></thead>
+              <tbody>
+                <tr><td>Individual</td><td>&lt;1 Pallet</td><td>$7.49</td></tr>
+                <tr class="best-value"><td>Full Pallet</td><td>45 bags</td><td>$6.99</td></tr>
+                <tr><td colspan="3" style="color:var(--gold);font-size:13px!important;font-style:italic;">Full Truckload (28 pallets) — Call for pricing</td></tr>
+              </tbody>
+            </table>
+            <div class="d-flex gap-2 mt-3">
+              <button class="btn-order" onclick="openOrderModal('Macro Flake Shavings (8.0 cu ft bags)')">Order Now</button>
+              <a href="quote.html" class="btn-quote-sm">Bulk Quote</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-5">
+      <a href="products.html" class="btn-primary-gold">View Full Pricing & Ordering Details</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="container">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-7">
+        <span class="section-label">Ready to Upgrade Your Barn?</span>
+        <h2>Built for Operations That Can't Afford to Compromise</h2>
+        <p>Serving racetracks, thoroughbred training centers, and high-volume barns across Kentucky and surrounding states. Full semi-load and truckload pricing available.</p>
+      </div>
+      <div class="col-lg-5 text-lg-end">
+        <a href="quote.html" class="btn-primary-gold me-3">Request a Quote</a>
+        <a href="tel:5026501208" class="btn-outline-white">502-650-1208</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORDER MODAL -->
+<div class="modal fade" id="orderModal" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Place an Order</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body p-4">
+        <p style="color:#666;margin-bottom:24px;">Submit your order details below. We'll calculate your total with freight and tax, then send a secure payment link to your email.</p>
+        <form action="https://formspree.io/f/mgoqkpoj" method="POST" id="orderForm">
+          <input type="hidden" name="_subject" value="New Order Request — Bluegrass Bedding">
+          <div class="row g-3">
+            <div class="col-md-6"><label class="form-label">Full Name *</label><input type="text" name="name" class="form-control" required></div>
+            <div class="col-md-6"><label class="form-label">Barn / Facility Name</label><input type="text" name="facility" class="form-control"></div>
+            <div class="col-md-6"><label class="form-label">Email Address *</label><input type="email" name="email" class="form-control" required></div>
+            <div class="col-md-6"><label class="form-label">Phone Number *</label><input type="tel" name="phone" class="form-control" required></div>
+            <div class="col-md-6"><label class="form-label">Delivery ZIP Code *</label><input type="text" name="zip" class="form-control" placeholder="For freight estimate" required></div>
+            <div class="col-md-6"><label class="form-label">Product *</label>
+              <select name="product" class="form-select" required id="productSelect">
+                <option value="">— Select —</option>
+                <option>Pine Pellets (40 lb bags)</option>
+                <option>Micro Flake Shavings (3.5 cu ft bags)</option>
+                <option>Macro Flake Shavings (8.0 cu ft bags)</option>
+              </select>
+            </div>
+            <div class="col-md-6"><label class="form-label">Quantity / Tier *</label>
+              <select name="quantity_tier" class="form-select" required id="tierSelect">
+                <option value="">— Select —</option>
+                <option>Individual bags (less than 1 pallet)</option>
+                <option>Full pallet</option>
+              </select>
+            </div>
+            <div class="col-md-6" id="bagCountRow" style="display:none;"><label class="form-label">Number of Bags</label><input type="number" name="bag_count" class="form-control" min="1"></div>
+            <div class="col-md-6"><label class="form-label">Pickup or Delivery?</label>
+              <select name="pickup_delivery" class="form-select">
+                <option>Delivery</option>
+                <option>Pickup (Goshen, KY)</option>
+              </select>
+            </div>
+            <div class="col-12"><label class="form-label">Notes</label><textarea name="notes" class="form-control" rows="3"></textarea></div>
+          </div>
+          <div class="mt-3 p-3 rounded" style="background:#f0faf9;border:1px solid #0C7479;">
+            <p style="margin:0;color:#0C7479;font-size:13px!important;"><i class="fas fa-lock me-2"></i>After submitting, we calculate your total with freight and tax and send a secure payment link to your email.</p>
+          </div>
+          <button type="submit" class="btn-submit mt-4">Submit Order Request</button>
+        </form>
+        <div id="orderSuccess" style="display:none;" class="text-center py-4">
+          <i class="fas fa-check-circle" style="font-size:48px;color:#0C7479;"></i>
+          <h4 class="mt-3">Order Request Received!</h4>
+          <p>We'll send a payment link to your email within 1 business day. Questions? Call <a href="tel:5026501208">502-650-1208</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-3">
+        <div class="footer-logo mb-4">
+          <a href="index.html"><img src="https://bluegrassbedding.com/cdn/shop/files/logo.png?v=1768809540&width=300" alt="Bluegrass Bedding"></a>
+        </div>
+        <p style="color:rgba(255,255,255,0.4);font-size:13px!important;line-height:1.8;">Track-grade pine bedding for thoroughbred racing barns. HISA aligned. Full chain of custody. Goshen, Kentucky.</p>
+      </div>
+      <div class="col-lg-3">
+        <h4>Products</h4>
+        <ul class="footer-links">
+          <li><a href="products.html#pine-pellets">Pine Pellets (40 lb bags)</a></li>
+          <li><a href="products.html#micro-flake">Micro Flake Shavings</a></li>
+          <li><a href="products.html#macro-flake">Macro Flake Shavings</a></li>
+          <li><a href="quote.html">Bulk & Truckload Quotes</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <h4>Who We Serve</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Thoroughbred Racing</a></li>
+          <li><a href="show.html">Show & Sport Horses</a></li>
+          <li><a href="boarding.html">Boarding & Training</a></li>
+          <li><a href="science.html">Why It Matters</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <h4>Contact</h4>
+        <ul class="footer-contact list-unstyled">
+          <li><i class="fas fa-map-marker-alt"></i>Goshen, Kentucky</li>
+          <li><i class="fas fa-phone"></i><a href="tel:5026501208">502-650-1208</a></li>
+          <li><i class="fas fa-envelope"></i><a href="mailto:info@bluegrassbedding.com">info@bluegrassbedding.com</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container d-flex justify-content-between align-items-center flex-wrap gap-2">
+      <p>© 2026 Bluegrass Bedding. All rights reserved. Goshen, KY.</p>
+      <p style="color:rgba(255,255,255,0.2);font-size:12px!important;">USDA 319.40-7 · 100% BioBased · HISA Aligned</p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  /* Segment gate logic */
+  (function() {
+    var seg = localStorage.getItem('bb_segment');
+    if (!seg) {
+      var gate = document.getElementById('segmentGate');
+      gate.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  })();
+  function chooseSegment(seg) {
+    localStorage.setItem('bb_segment', seg);
+    var gate = document.getElementById('segmentGate');
+    gate.style.opacity = '0';
+    gate.style.transition = 'opacity 0.3s';
+    setTimeout(function() { gate.classList.remove('active'); document.body.style.overflow = ''; }, 300);
+  }
+
+  function openOrderModal(product) {
+    document.getElementById('productSelect').value = product;
+    new bootstrap.Modal(document.getElementById('orderModal')).show();
+  }
+  document.getElementById('tierSelect').addEventListener('change', function() {
+    document.getElementById('bagCountRow').style.display = this.value === 'Individual bags (less than 1 pallet)' ? 'block' : 'none';
+  });
+  document.getElementById('orderForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const res = await fetch(e.target.action, { method: 'POST', body: new FormData(e.target), headers: { 'Accept': 'application/json' } });
+    if (res.ok) { e.target.style.display = 'none'; document.getElementById('orderSuccess').style.display = 'block'; }
+    else { alert('Error submitting. Please call 502-650-1208.'); }
+  });
+</script>
+</body>
+</html>
