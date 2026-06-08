@@ -193,6 +193,15 @@ section h2 { font-family: 'Assistant', sans-serif; font-size: 46px; font-weight:
 .contact-input:focus { background: rgba(255,255,255,0.09) !important; border-color: var(--gold) !important; box-shadow: 0 0 0 0.2rem rgba(201,168,76,0.2) !important; color: #fff !important; }
 .contact-input option { background: var(--navy); color: #fff; }
 
+/* --- Audience Switcher Banner (all pages) --- */
+.aud-banner { background: #060d18; border-bottom: 1px solid rgba(201,168,76,0.25); padding: 9px 0; }
+.aud-banner .container { display: flex; justify-content: center; align-items: center; gap: 0; flex-wrap: wrap; }
+.aud-link { color: rgba(255,255,255,0.4); font-size: 11px !important; font-weight: 500 !important; letter-spacing: 0.13em; text-transform: uppercase; text-decoration: none !important; padding: 4px 20px; transition: color 0.25s; white-space: nowrap; }
+.aud-link:hover { color: rgba(255,255,255,0.75); }
+.aud-link.active { color: var(--gold); }
+.aud-link i { font-size: 10px !important; margin-right: 6px; }
+.aud-sep { color: rgba(255,255,255,0.15); font-size: 14px !important; user-select: none; }
+
 /* --- FAQ answer max-height for long answers --- */
 .faq-item.active .faq-answer { max-height: 800px; }
 

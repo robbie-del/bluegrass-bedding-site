@@ -14,13 +14,14 @@
 </head>
 <body>
 
-<!-- AUDIENCE SWITCHER BAR -->
-<div style="background:var(--dark);border-bottom:1px solid rgba(201,168,76,0.2);padding:8px 0;text-align:center;">
+<!-- AUDIENCE BANNER -->
+<div class="aud-banner">
   <div class="container">
-    <a href="index.html" onclick="localStorage.removeItem('bb_segment');" style="color:rgba(255,255,255,0.4);font-size:12px!important;letter-spacing:0.08em;text-decoration:none;">
-      <i class="fas fa-exchange-alt" style="color:var(--gold);font-size:11px!important;margin-right:6px;"></i>
-      Not a boarding barn? &nbsp;|&nbsp; <span style="color:rgba(255,255,255,0.65);">Switch to Racing</span> &nbsp;or&nbsp; <span style="color:rgba(255,255,255,0.65);">Show & Sport Horses</span>
-    </a>
+    <a href="index.html" class="aud-link"><i class="fas fa-horse-head"></i>Thoroughbred Racing</a>
+    <span class="aud-sep">|</span>
+    <a href="show.html" class="aud-link"><i class="fas fa-award"></i>Show & Sport Horses</a>
+    <span class="aud-sep">|</span>
+    <a href="boarding.html" class="aud-link active"><i class="fas fa-warehouse"></i>Boarding & Training</a>
   </div>
 </div>
 
@@ -66,7 +67,7 @@
 
 <!-- HERO -->
 <section class="hero-section">
-  <div class="hero-bg" style="background-image:url('https://images.unsplash.com/photo-1516467508483-a7212febe31a?w=1800&q=85'); background-position: center 40%;"></div>
+  <div class="hero-bg" style="background-image:url('https://images.unsplash.com/photo-1510266836801-a25ee28d3c28?w=1800&q=85'); background-position: center 50%;"></div>
   <div class="hero-overlay"></div>
   <div class="container hero-content">
     <div class="row">

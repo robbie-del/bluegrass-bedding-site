@@ -14,13 +14,14 @@
 </head>
 <body>
 
-<!-- AUDIENCE SWITCHER BAR -->
-<div class="audience-bar" style="background:var(--dark);border-bottom:1px solid rgba(201,168,76,0.2);">
+<!-- AUDIENCE BANNER -->
+<div class="aud-banner">
   <div class="container">
-    <a href="index.html" onclick="localStorage.removeItem('bb_segment');" style="color:rgba(255,255,255,0.4);font-size:12px!important;letter-spacing:0.08em;text-decoration:none;transition:color 0.3s;">
-      <i class="fas fa-exchange-alt" style="color:var(--gold);font-size:11px!important;margin-right:6px;"></i>
-      Not a show barn? &nbsp;|&nbsp; <span style="color:rgba(255,255,255,0.65);">Switch to Racing</span> &nbsp;or&nbsp; <span style="color:rgba(255,255,255,0.65);">Boarding & Training</span>
-    </a>
+    <a href="index.html" class="aud-link"><i class="fas fa-horse-head"></i>Thoroughbred Racing</a>
+    <span class="aud-sep">|</span>
+    <a href="show.html" class="aud-link active"><i class="fas fa-award"></i>Show & Sport Horses</a>
+    <span class="aud-sep">|</span>
+    <a href="boarding.html" class="aud-link"><i class="fas fa-warehouse"></i>Boarding & Training</a>
   </div>
 </div>
 
