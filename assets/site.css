@@ -185,6 +185,11 @@ section h2 { font-family: 'Assistant', sans-serif; font-size: 46px; font-weight:
 .faq-item.active .faq-icon { transform: rotate(45deg); }
 .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s; }
 .faq-answer-inner { padding: 0 0 24px 0; color: rgba(255,255,255,0.6); line-height: 1.8; }
+.faq-answer-inner p,
+.faq-answer-inner li,
+.faq-answer-inner ol,
+.faq-answer-inner ul { color: rgba(255,255,255,0.6) !important; }
+.faq-answer-inner a { color: var(--gold) !important; }
 .faq-item.active .faq-answer { max-height: 400px; }
 
 /* --- Contact Page Dark Inputs --- */
