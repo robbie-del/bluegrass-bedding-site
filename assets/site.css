@@ -44,7 +44,7 @@ section h2 { font-family: 'Assistant', sans-serif; font-size: 46px; font-weight:
 
 /* --- Navbar --- */
 .main-nav { background: var(--navy); padding: 0; border-bottom: 2px solid var(--gold); }
-.main-nav .navbar-brand img { width: 120px; }
+.main-nav .navbar-brand img { width: 130px; background: #fff; padding: 6px 10px; border-radius: 4px; }
 .main-nav .nav-link { color: rgba(255,255,255,0.85) !important; font-size: 14px !important; font-weight: 400 !important; letter-spacing: 0.08em; text-transform: uppercase; padding: 20px 16px !important; transition: color 0.3s; border-bottom: 2px solid transparent; margin-bottom: -2px; }
 .main-nav .nav-link:hover, .main-nav .nav-link.active { color: var(--gold) !important; border-bottom-color: var(--gold); }
 .btn-nav-cta { background: var(--gold); color: var(--navy) !important; padding: 10px 24px !important; border-radius: 3px; font-size: 13px !important; font-weight: 600 !important; letter-spacing: 0.1em; text-transform: uppercase; transition: all 0.3s; border-bottom: none !important; }
