@@ -421,6 +421,8 @@ section h2 { font-family: 'Assistant', sans-serif; font-size: 46px; font-weight:
 
 /* --- Responsive --- */
 @media (max-width: 991px) {
+  /* g-5 gutters (48px) outgrow the container's 12px side padding and cause horizontal overflow on small screens */
+  .row.g-5 { --bs-gutter-x: 1.5rem; }
   .hero-h1 { font-size: 48px; }
   .hero-stat-num { font-size: 32px; }
   section h2 { font-size: 34px; }
@@ -440,10 +442,10 @@ section h2 { font-family: 'Assistant', sans-serif; font-size: 46px; font-weight:
 }
 @media (max-width: 767px) {
   .hero-h1 { font-size: 36px; }
-  .hero-section { min-height: 0; padding-bottom: 0; }
-  .hero-content { padding: 80px 0 48px; }
-  /* Stat bar flows below hero content instead of overlapping it */
-  .hero-stats { position: static !important; }
+  .hero-section { min-height: 0; padding-bottom: 0; display: block; }
+  .hero-content { padding: 80px 12px 48px; }
+  /* Stat bar flows below hero content instead of overlapping it; relative (not static) keeps its z-index above the hero photo */
+  .hero-stats { position: relative !important; bottom: auto !important; background: var(--navy); }
   .section-dark, .section-cream, .section-white, .section-mid { padding: 60px 0; }
   .inner-hero h1 { font-size: 36px; }
   .hero-stat { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.2); padding: 16px 12px; }
@@ -457,4 +459,7 @@ section h2 { font-family: 'Assistant', sans-serif; font-size: 46px; font-weight:
   .segment-card { height: 200px; }
   .segment-gate-logo img { width: 100px; margin-bottom: 24px; }
   .segment-gate-sub { margin-bottom: 24px; }
+  /* Product showcase caption drops below the photo onto solid navy for readability */
+  .showcase-caption { position: static !important; background: var(--navy); padding: 28px 16px !important; }
+  .showcase-caption .row { --bs-gutter-y: 18px; }
 }
