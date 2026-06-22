@@ -234,7 +234,7 @@
 
       <!-- Disclaimer -->
       <div class="calc-disc">
-        Estimates based on the inputs above over 30 days/month. The dumpster option applies to the pine side only ($45 per 8&nbsp;yd³ haul, ~92 muck tubs per dumpster); straw waste removal is handled separately and not included. Straw is typically less absorbent and bulkier, so real-world bale usage and waste-removal costs often run higher than shown. Actual results vary — <a href="quote.html" style="color:var(--green);">contact us for a firm quote</a>.
+        Estimates based on the inputs above over 30 days/month. The dumpster option applies to the pine side only ($45 per 8&nbsp;yd³ haul, ~75 muck tubs per dumpster); straw waste removal is handled separately and not included. Straw is typically less absorbent and bulkier, so real-world bale usage and waste-removal costs often run higher than shown. Actual results vary — <a href="quote.html" style="color:var(--green);">contact us for a firm quote</a>.
       </div>
 
     </div><!-- .calc-wrap -->
@@ -307,8 +307,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
   var DAYS = 30;
-  var DUMP_CUYD=8, DUMP_COST=45, TUB_QT=70, QT_PER_FT3=29.9221;
-  var TUBS_PER_DUMP = (DUMP_CUYD*27*QT_PER_FT3)/TUB_QT;
+  var DUMP_COST=45;
+  var TUBS_PER_DUMP = 75;  // 75 tubs per dumpster (accounts for packing inefficiency)
   var COST_PER_TUB = DUMP_COST/TUBS_PER_DUMP;
   function $c(id){return document.getElementById(id);}
   function money(n){return '$' + n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});}
@@ -354,7 +354,7 @@
       var haulsMonth=((+pDay.value)*stalls*DAYS)/TUBS_PER_DUMP;
       $c('pDumpNote').innerHTML='Included for pine: ~<b>'+tubsMonth.toLocaleString('en-US')+' muck tubs/mo</b> &asymp; <b>'+haulsMonth.toLocaleString('en-US',{minimumFractionDigits:1,maximumFractionDigits:1})+' dumpsters/mo</b> at $45/haul. Straw waste removal is handled separately and not included here.';
     } else {
-      $c('pDumpNote').innerHTML='1 bag/day &asymp; 1 muck tub (70 qt); ~92 tubs fill an 8&nbsp;yd&sup3; dumpster ($45/haul). Toggle on to add pine waste removal to the pine total.';
+      $c('pDumpNote').innerHTML='1 bag/day &asymp; 1 muck tub (70 qt); ~75 tubs fill an 8&nbsp;yd&sup3; dumpster ($45/haul). Toggle on to add pine waste removal to the pine total.';
     }
 
     $c('pMonSub').textContent = 'ongoing bedding, 30 days' + (dumpOn ? ' + dumpster' : '');
