@@ -190,7 +190,7 @@
             </div>
           </div>
           <div class="outs">
-            <div class="big"><div class="bt">Barn / Month</div><div class="bv" id="pMon">$0</div><div class="bs" id="pMonSub">ongoing bedding, 30 days</div></div>
+            <div class="big"><div class="bt">Barn / Month</div><div class="bv" id="pMon">$0</div><div class="bs" id="pMonSub">ongoing + initial bed-down</div></div>
             <div class="mini">
               <div class="mc"><div class="mt">Per Stall / Day</div><div class="mv" id="pPsDay">$0</div></div>
               <div class="mc"><div class="mt">Per Stall / Month</div><div class="mv" id="pPsMon">$0</div></div>
@@ -228,7 +228,7 @@
             </div>
           </div>
           <div class="outs">
-            <div class="big"><div class="bt">Barn / Month</div><div class="bv" id="sMon">$0</div><div class="bs">ongoing bedding, 30 days</div></div>
+            <div class="big"><div class="bt">Barn / Month</div><div class="bv" id="sMon">$0</div><div class="bs">ongoing + initial bed-down</div></div>
             <div class="mini">
               <div class="mc"><div class="mt">Per Stall / Day</div><div class="mv" id="sPsDay">$0</div></div>
               <div class="mc"><div class="mt">Per Stall / Month</div><div class="mv" id="sPsMon">$0</div></div>
@@ -333,9 +333,9 @@
     var init=+initEl.value, day=+dayEl.value, price=num(priceEl);
     var dumpDay = includeDump ? day*COST_PER_TUB : 0;
     var psDay=day*price + dumpDay, psMon=psDay*DAYS;
-    var barnMon=psMon*stalls;
     var units=day*stalls*DAYS;
     var initCost=init*price*stalls;
+    var barnMon=psMon*stalls + initCost;
     $c(ids.mon).textContent=money0(barnMon);
     $c(ids.psDay).textContent=money(psDay);
     $c(ids.psMon).textContent=money(psMon);
@@ -365,7 +365,7 @@
       $c('pDumpNote').innerHTML='1 bag/day &asymp; 1 muck tub (70 qt); ~75 tubs fill an 8&nbsp;yd&sup3; dumpster ($45/haul). Toggle on to add pine waste removal to the pine total.';
     }
 
-    $c('pMonSub').textContent = 'ongoing bedding, 30 days' + (dumpOn ? ' + dumpster' : '');
+    $c('pMonSub').textContent = 'ongoing + initial bed-down' + (dumpOn ? ' + dumpster' : '');
 
     var diff=strawMon-pineMon;
     var box=$c('savings');
