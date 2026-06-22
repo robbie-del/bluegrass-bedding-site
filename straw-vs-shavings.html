@@ -68,8 +68,8 @@
     .dumpnote{font-size:10px;color:#6a6a60;margin-top:8px;line-height:1.45;}
     .dumpnote b{color:var(--green);}
     .savings-box{border-radius:12px;padding:28px 16px;text-align:center;background:var(--green);border:3px solid var(--gold);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;}
-    .savings-box .sh{font-size:11px;font-weight:800;letter-spacing:.7px;text-transform:uppercase;color:var(--gold);}
-    .savings-box .sv{font-size:64px;font-weight:900;color:#fff;line-height:1;letter-spacing:-1px;}
+    .savings-box .sh{font-size:13px;font-weight:900;letter-spacing:.7px;text-transform:uppercase;color:var(--gold);}
+    .savings-box .sv{font-size:80px;font-weight:900;color:#fff;line-height:1;letter-spacing:-2px;}
     .savings-box .sv small{display:block;font-size:14px;color:#cfe0d6;font-weight:700;margin-top:4px;}
     .savings-box .sub{font-size:12px;color:#cfe0d6;line-height:1.5;}
     .savings-box .arrows{font-size:28px;color:var(--gold);letter-spacing:-4px;}
@@ -196,7 +196,7 @@
         <!-- SAVINGS (middle column) -->
         <div class="savings-box" id="savings">
           <div class="arrows">← →</div>
-          <div class="sh" id="savH">You Save with Bluegrass Pine</div>
+          <div class="sh" id="savH">You Save with Bluegrass Bedding</div>
           <div class="sv" id="savV">$0 <small>/ month</small></div>
           <div class="sub" id="savS">across 20 stalls</div>
           <a href="quote.html" style="display:inline-block;margin-top:8px;background:var(--gold);color:var(--green)!important;padding:9px 16px;border-radius:6px;font-size:12px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;">Get a Quote →</a>
@@ -363,7 +363,7 @@
     var box=$c('savings');
     if(diff>=0){
       box.classList.remove('flip');
-      $c('savH').textContent='You Save with Bluegrass Pine';
+      $c('savH').textContent='You Save with Bluegrass Bedding';
       $c('savV').innerHTML=money0(diff)+' <small>/ month</small>';
       var pct = strawMon>0 ? Math.round(diff/strawMon*100) : 0;
       $c('savS').innerHTML='That\'s <b>'+money0(diff*12)+'/year</b> across '+stalls+' stall'+(stalls===1?'':'s')+' &mdash; about <b>'+pct+'% less</b> than straw.';
