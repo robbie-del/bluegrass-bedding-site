@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pine vs. Straw Cost Comparison — Bluegrass Bedding</title>
+  <meta name="description" content="See the real cost difference between Bluegrass pine bedding and conventional straw for your horse barn. Interactive calculator — adjust stall count, daily usage, and waste removal.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&family=Assistant:wght@200..800&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/site.css">
+  <style>
+    /* Calculator component styles */
+    .calc-wrap{width:100%;max-width:1000px;margin:0 auto;}
+    .ctrl .row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px;}
+    .ctrl .lab{font-size:13px;font-weight:700;color:var(--green);}
+    .ctrl .val{font-size:18px;font-weight:800;color:#c8943a;}
+    .ctrl .val small{font-size:11px;color:#6a6a60;font-weight:600;}
+    .ctrl .hint{font-size:10.5px;color:#6a6a60;margin-top:5px;}
+    input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:7px;border-radius:6px;background:linear-gradient(90deg,var(--rc,var(--gold)) 0%,var(--rc,var(--gold)) var(--pct,40%),#e6e0d0 var(--pct,40%),#e6e0d0 100%);outline:none;}
+    input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:22px;height:22px;border-radius:50%;background:var(--green);border:3px solid var(--rc,var(--gold));cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.3);}
+    input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--green);border:3px solid var(--rc,var(--gold));cursor:pointer;}
+    .compare{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+    @media(max-width:740px){.compare{grid-template-columns:1fr;}}
+    .side{border:1px solid #ddd5c2;border-radius:10px;overflow:hidden;}
+    .side .cap{padding:11px 16px;color:#fff;font-weight:800;letter-spacing:.4px;font-size:15px;display:flex;align-items:center;justify-content:space-between;}
+    .side.pine .cap{background:var(--green);}
+    .side.straw .cap{background:#8a6f3c;}
+    .side .cap .tag{font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;}
+    .side.pine .cap .tag{background:var(--gold);color:var(--green);}
+    .side.straw .cap .tag{background:#e9ddc2;color:#8a6f3c;}
+    .side .ins{padding:16px;}
+    .side.straw .ins{background:#f3ecdc;}
+    .side.pine .ins{background:#fbf9f2;}
+    .calc-ctrl{margin-bottom:15px;}
+    .pricefield{display:flex;align-items:center;justify-content:space-between;padding:10px 13px;border:1px solid #ddd5c2;border-radius:8px;background:#fff;}
+    .pricefield .pl{font-size:12.5px;font-weight:700;color:var(--green);}
+    .pinput{display:flex;align-items:center;border:2px solid var(--rc,var(--gold));border-radius:7px;padding:3px 9px;background:#fff;}
+    .pinput .dollar{font-size:15px;font-weight:800;color:#0f2a1f;}
+    .pinput input{width:58px;border:none;background:transparent;font-size:17px;font-weight:800;color:#c8943a;outline:none;text-align:right;font-family:inherit;-moz-appearance:textfield;}
+    .side.straw .pinput input{color:#8a6f3c;}
+    .outs{padding:0;}
+    .big{padding:14px 16px;color:#fff;text-align:center;}
+    .side.pine .big{background:var(--green);}
+    .side.straw .big{background:#8a6f3c;}
+    .big .bt{font-size:10.5px;letter-spacing:.5px;text-transform:uppercase;font-weight:800;opacity:.9;}
+    .side.pine .big .bt{color:var(--gold);}
+    .side.straw .big .bt{color:#f0e3c4;}
+    .big .bv{font-size:30px;font-weight:800;margin-top:3px;line-height:1;}
+    .big .bs{font-size:10.5px;opacity:.85;margin-top:4px;}
+    .mini{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#ddd5c2;}
+    .mc{background:#fff;padding:10px 12px;}
+    .mc .mt{font-size:9.5px;letter-spacing:.3px;text-transform:uppercase;color:#6a6a60;font-weight:700;}
+    .mc .mv{font-size:16px;font-weight:800;color:var(--green);margin-top:2px;}
+    .side.straw .mc .mv{color:#8a6f3c;}
+    .mc.full{grid-column:1 / -1;}
+    .switch{position:relative;width:48px;height:26px;flex:none;}
+    .switch input{opacity:0;width:0;height:0;}
+    .slider-sw{position:absolute;cursor:pointer;inset:0;background:#bdb5a3;border-radius:26px;transition:.2s;}
+    .slider-sw:before{content:"";position:absolute;height:20px;width:20px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.2s;}
+    .switch input:checked + .slider-sw{background:var(--green);}
+    .switch input:checked + .slider-sw:before{transform:translateX(22px);}
+    .dumprow{margin-top:12px;padding:11px 13px;border:1px solid #ddd5c2;border-radius:8px;background:#fff;}
+    .dumptop{display:flex;align-items:center;justify-content:space-between;}
+    .dumptop .pl{font-size:12.5px;font-weight:700;color:var(--green);}
+    .dumpnote{font-size:10px;color:#6a6a60;margin-top:8px;line-height:1.45;}
+    .dumpnote b{color:var(--green);}
+    .savings-box{margin-top:18px;border-radius:10px;padding:16px 20px;text-align:center;background:var(--green);border:2px solid var(--gold);}
+    .savings-box .sh{font-size:12px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--gold);}
+    .savings-box .sv{font-size:34px;font-weight:800;color:#fff;margin:4px 0;line-height:1.05;}
+    .savings-box .sv small{font-size:15px;color:#cfe0d6;font-weight:700;}
+    .savings-box .sub{font-size:12.5px;color:#cfe0d6;}
+    .savings-box.flip{background:#6e2f2f;border-color:#c98b3a;}
+    .calc-disc{font-size:9.5px;color:#6a6a60;text-align:center;margin-top:12px;line-height:1.5;}
+    .shared-ctrl{margin-bottom:18px;background:#fff;border:1px solid #ddd5c2;border-radius:10px;padding:16px;}
+  </style>
+</head>
+<body>
+
+<!-- AUDIENCE BANNER -->
+<div class="aud-banner">
+  <div class="container">
+    <a href="index.html" class="aud-link active"><i class="fas fa-horse-head"></i>Thoroughbred Racing</a>
+    <span class="aud-sep">|</span>
+    <a href="show.html" class="aud-link"><i class="fas fa-award"></i>Show & Sport Horses</a>
+    <span class="aud-sep">|</span>
+    <a href="boarding.html" class="aud-link"><i class="fas fa-warehouse"></i>Boarding & Training</a>
+  </div>
+</div>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="top-bar-contact d-flex align-items-center gap-3">
+        <a href="tel:5026501208"><i class="fas fa-phone me-1"></i>502-650-1208</a>
+        <span>|</span>
+        <a href="mailto:info@bluegrassbedding.com"><i class="fas fa-envelope me-1"></i>info@bluegrassbedding.com</a>
+      </div>
+      <div class="d-none d-md-flex align-items-center gap-2" style="font-size:12px!important;color:rgba(255,255,255,0.4);letter-spacing:0.1em;text-transform:uppercase;">
+        <i class="fas fa-award" style="color:var(--gold);font-size:12px!important;"></i>
+        Triple Screened &nbsp;·&nbsp; 100% Pure Pine &nbsp;·&nbsp; Goshen, KY
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg main-nav">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="assets/logo.png" alt="Bluegrass Bedding">
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <i class="fas fa-bars" style="color:var(--gold);"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav mx-auto gap-lg-1">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="science.html">Why It Matters</a></li>
+        <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+      <a href="quote.html" class="nav-link btn-nav-cta ms-3">Request a Quote</a>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section style="background:var(--green);padding:64px 0 48px;border-bottom:3px solid var(--gold);">
+  <div class="container text-center">
+    <span class="section-label" style="margin-bottom:12px;display:block;">Cost Comparison Tool</span>
+    <h1 style="font-family:'Playfair Display',serif;color:#fff;font-size:clamp(28px,5vw,44px);margin-bottom:16px;">Pine vs. Straw: <span style="color:var(--gold);">What Does It Really Cost?</span></h1>
+    <p style="color:rgba(255,255,255,0.72);max-width:600px;margin:0 auto;font-size:17px!important;line-height:1.7;">Adjust the sliders to match your barn. See exactly how Bluegrass Pine compares to conventional straw — month by month, stall by stall.</p>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section style="background:#f5f1e6;padding:48px 0 64px;">
+  <div class="container">
+    <div class="calc-wrap">
+
+      <!-- Shared: stall count -->
+      <div class="shared-ctrl">
+        <div class="calc-ctrl">
+          <div class="row"><span class="lab">Number of stalls</span><span class="val" id="vStalls">20 <small>stalls</small></span></div>
+          <input type="range" id="sStalls" min="1" max="100" step="1" value="20">
+          <div class="hint">Applies to both sides — same barn, same stall count</div>
+        </div>
+      </div>
+
+      <!-- Side-by-side comparison -->
+      <div class="compare mt-3">
+
+        <!-- PINE -->
+        <div class="side pine">
+          <div class="cap">Bluegrass Pine <span class="tag">PREMIUM</span></div>
+          <div class="ins">
+            <div class="calc-ctrl">
+              <div class="row"><span class="lab">Initial bed-down / stall</span><span class="val" id="vpInit">5 <small>bags</small></span></div>
+              <input type="range" id="pInit" min="1" max="15" step="1" value="5" style="--rc:var(--gold)">
+            </div>
+            <div class="calc-ctrl">
+              <div class="row"><span class="lab">Bags per day</span><span class="val" id="vpDay">1 <small>bag/day</small></span></div>
+              <input type="range" id="pDay" min="0.5" max="5" step="0.5" value="1" style="--rc:var(--gold)">
+            </div>
+            <div class="pricefield">
+              <span class="pl">Price per bag</span>
+              <span class="pinput" style="--rc:var(--gold)"><span class="dollar">$</span><input type="number" id="pPrice" min="0" step="0.05" value="7.50"></span>
+            </div>
+            <div class="dumprow">
+              <div class="dumptop">
+                <span class="pl">Add dumpster / waste removal</span>
+                <label class="switch"><input type="checkbox" id="pDump"><span class="slider-sw"></span></label>
+              </div>
+              <div class="dumpnote" id="pDumpNote"></div>
+            </div>
+          </div>
+          <div class="outs">
+            <div class="big"><div class="bt">Barn / Month</div><div class="bv" id="pMon">$0</div><div class="bs" id="pMonSub">ongoing bedding, 30 days</div></div>
+            <div class="mini">
+              <div class="mc"><div class="mt">Per Stall / Day</div><div class="mv" id="pPsDay">$0</div></div>
+              <div class="mc"><div class="mt">Per Stall / Month</div><div class="mv" id="pPsMon">$0</div></div>
+              <div class="mc"><div class="mt">Bags / Month</div><div class="mv" id="pUnits">0</div></div>
+              <div class="mc"><div class="mt">One-time bed-down</div><div class="mv" id="pInitCost">$0</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STRAW -->
+        <div class="side straw">
+          <div class="cap">Straw <span class="tag">CONVENTIONAL</span></div>
+          <div class="ins">
+            <div class="calc-ctrl">
+              <div class="row"><span class="lab">Initial bed-down / stall</span><span class="val" id="vsInit" style="color:#8a6f3c">4 <small>bales</small></span></div>
+              <input type="range" id="sInit" min="1" max="15" step="1" value="4" style="--rc:#a8884e">
+            </div>
+            <div class="calc-ctrl">
+              <div class="row"><span class="lab">Bales per day</span><span class="val" id="vsDay" style="color:#8a6f3c">1.5 <small>bales/day</small></span></div>
+              <input type="range" id="sDay" min="0.5" max="5" step="0.5" value="1.5" style="--rc:#a8884e">
+            </div>
+            <div class="pricefield">
+              <span class="pl">Price per bale</span>
+              <span class="pinput" style="--rc:#a8884e"><span class="dollar">$</span><input type="number" id="sPrice" min="0" step="0.25" value="10.00"></span>
+            </div>
+          </div>
+          <div class="outs">
+            <div class="big"><div class="bt">Barn / Month</div><div class="bv" id="sMon">$0</div><div class="bs">ongoing bedding, 30 days</div></div>
+            <div class="mini">
+              <div class="mc"><div class="mt">Per Stall / Day</div><div class="mv" id="sPsDay">$0</div></div>
+              <div class="mc"><div class="mt">Per Stall / Month</div><div class="mv" id="sPsMon">$0</div></div>
+              <div class="mc"><div class="mt">Bales / Month</div><div class="mv" id="sUnits">0</div></div>
+              <div class="mc"><div class="mt">One-time bed-down</div><div class="mv" id="sInitCost">$0</div></div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- .compare -->
+
+      <!-- Savings banner -->
+      <div class="savings-box" id="savings">
+        <div class="sh" id="savH">You Save with Bluegrass Pine</div>
+        <div class="sv" id="savV">$0 <small>/ month</small></div>
+        <div class="sub" id="savS">across 20 stalls</div>
+      </div>
+
+      <!-- Disclaimer -->
+      <div class="calc-disc">
+        Estimates based on the inputs above over 30 days/month. The dumpster option applies to the pine side only ($45 per 8&nbsp;yd³ haul, ~92 muck tubs per dumpster); straw waste removal is handled separately and not included. Straw is typically less absorbent and bulkier, so real-world bale usage and waste-removal costs often run higher than shown. Actual results vary — <a href="quote.html" style="color:var(--green);">contact us for a firm quote</a>.
+      </div>
+
+    </div><!-- .calc-wrap -->
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="container">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-7">
+        <span class="section-label">Ready to Make the Switch?</span>
+        <h2>Built for Operations That Can't Afford to Compromise</h2>
+        <p>Serving racetracks, thoroughbred training centers, and high-volume barns across Kentucky and surrounding states. Full semi-load and truckload pricing available.</p>
+      </div>
+      <div class="col-lg-5 text-lg-end">
+        <a href="quote.html" class="btn-primary-gold me-3">Request a Quote</a>
+        <a href="tel:5026501208" class="btn-outline-white">502-650-1208</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-3">
+        <div class="footer-logo mb-4"><a href="index.html"><img src="assets/logo.png" alt="Bluegrass Bedding"></a></div>
+        <p style="color:rgba(255,255,255,0.4);font-size:13px!important;line-height:1.8;">Premium pine bedding for show barns, racing operations, and boarding facilities. Triple-screened. Goshen, Kentucky.</p>
+      </div>
+      <div class="col-lg-3">
+        <h4>Products</h4>
+        <ul class="footer-links">
+          <li><a href="products.html#pine-pellets">Pine Pellets</a></li>
+          <li><a href="products.html#micro-flake">Micro Flake Shavings</a></li>
+          <li><a href="products.html#macro-flake">Macro Flake Shavings</a></li>
+          <li><a href="quote.html">Request a Quote</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <h4>Information</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Thoroughbred Racing</a></li>
+          <li><a href="show.html">Show & Sport Horses</a></li>
+          <li><a href="boarding.html">Boarding & Training</a></li>
+          <li><a href="science.html">Why It Matters</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="straw-vs-shavings.html">Cost Calculator</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <h4>Contact</h4>
+        <ul class="footer-contact list-unstyled">
+          <li><i class="fas fa-map-marker-alt"></i>Goshen, Kentucky</li>
+          <li><i class="fas fa-phone"></i><a href="tel:5026501208">502-650-1208</a></li>
+          <li><i class="fas fa-envelope"></i><a href="mailto:info@bluegrassbedding.com">info@bluegrassbedding.com</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container d-flex justify-content-between flex-wrap gap-2">
+      <p>© 2026 Bluegrass Bedding. All rights reserved.</p>
+      <p style="color:rgba(255,255,255,0.2);font-size:12px!important;">Triple Screened · 100% Pure Pine · Direct from Manufacturer</p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  var DAYS = 30;
+  var DUMP_CUYD=8, DUMP_COST=45, TUB_QT=70, QT_PER_FT3=29.9221;
+  var TUBS_PER_DUMP = (DUMP_CUYD*27*QT_PER_FT3)/TUB_QT;
+  var COST_PER_TUB = DUMP_COST/TUBS_PER_DUMP;
+  function $c(id){return document.getElementById(id);}
+  function money(n){return '$' + n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});}
+  function money0(n){return '$' + Math.round(n).toLocaleString('en-US');}
+  function setFill(el){var min=+el.min,max=+el.max,v=+el.value; el.style.setProperty('--pct',((v-min)/(max-min))*100+'%');}
+  function num(el){var v=parseFloat(el.value); return (isNaN(v)||v<0)?0:v;}
+
+  var sStalls=$c('sStalls');
+  var pInit=$c('pInit'),pDay=$c('pDay'),pPrice=$c('pPrice'),pDump=$c('pDump');
+  var sInit=$c('sInit'),sDay=$c('sDay'),sPrice=$c('sPrice');
+  var allRanges=[sStalls,pInit,pDay,sInit,sDay];
+
+  function side(initEl,dayEl,priceEl,stalls,ids,unitWord,includeDump){
+    var init=+initEl.value, day=+dayEl.value, price=num(priceEl);
+    var dumpDay = includeDump ? day*COST_PER_TUB : 0;
+    var psDay=day*price + dumpDay, psMon=psDay*DAYS;
+    var barnMon=psMon*stalls;
+    var units=day*stalls*DAYS;
+    var initCost=init*price*stalls;
+    $c(ids.mon).textContent=money0(barnMon);
+    $c(ids.psDay).textContent=money(psDay);
+    $c(ids.psMon).textContent=money(psMon);
+    $c(ids.units).textContent=units.toLocaleString('en-US')+' '+unitWord;
+    $c(ids.initCost).textContent=money0(initCost);
+    return barnMon;
+  }
+
+  function calc(){
+    var stalls=+sStalls.value;
+    $c('vStalls').innerHTML=stalls+' <small>stall'+(stalls===1?'':'s')+'</small>';
+    $c('vpInit').innerHTML=(+pInit.value)+' <small>bag'+(+pInit.value===1?'':'s')+'</small>';
+    $c('vpDay').innerHTML=(+pDay.value)+' <small>bag'+(+pDay.value===1?'':'s')+'/day</small>';
+    $c('vsInit').innerHTML=(+sInit.value)+' <small>bale'+(+sInit.value===1?'':'s')+'</small>';
+    $c('vsDay').innerHTML=(+sDay.value)+' <small>bale'+(+sDay.value===1?'':'s')+'/day</small>';
+    allRanges.forEach(setFill);
+
+    var dumpOn = pDump.checked;
+    var pineMon=side(pInit,pDay,pPrice,stalls,{mon:'pMon',psDay:'pPsDay',psMon:'pPsMon',units:'pUnits',initCost:'pInitCost'},'bags',dumpOn);
+    var strawMon=side(sInit,sDay,sPrice,stalls,{mon:'sMon',psDay:'sPsDay',psMon:'sPsMon',units:'sUnits',initCost:'sInitCost'},'bales',false);
+
+    if(dumpOn){
+      var tubsMonth=Math.round((+pDay.value)*stalls*DAYS);
+      var haulsMonth=((+pDay.value)*stalls*DAYS)/TUBS_PER_DUMP;
+      $c('pDumpNote').innerHTML='Included for pine: ~<b>'+tubsMonth.toLocaleString('en-US')+' muck tubs/mo</b> &asymp; <b>'+haulsMonth.toLocaleString('en-US',{minimumFractionDigits:1,maximumFractionDigits:1})+' dumpsters/mo</b> at $45/haul. Straw waste removal is handled separately and not included here.';
+    } else {
+      $c('pDumpNote').innerHTML='1 bag/day &asymp; 1 muck tub (70 qt); ~92 tubs fill an 8&nbsp;yd&sup3; dumpster ($45/haul). Toggle on to add pine waste removal to the pine total.';
+    }
+
+    $c('pMonSub').textContent = 'ongoing bedding, 30 days' + (dumpOn ? ' + dumpster' : '');
+
+    var diff=strawMon-pineMon;
+    var box=$c('savings');
+    if(diff>=0){
+      box.classList.remove('flip');
+      $c('savH').textContent='You Save with Bluegrass Pine';
+      $c('savV').innerHTML=money0(diff)+' <small>/ month</small>';
+      var pct = strawMon>0 ? Math.round(diff/strawMon*100) : 0;
+      $c('savS').innerHTML='That\'s <b>'+money0(diff*12)+'/year</b> across '+stalls+' stall'+(stalls===1?'':'s')+' &mdash; about <b>'+pct+'% less</b> than straw.';
+    } else {
+      box.classList.add('flip');
+      $c('savH').textContent='Pine Costs More With These Inputs';
+      $c('savV').innerHTML=money0(-diff)+' <small>/ month more</small>';
+      $c('savS').innerHTML='Adjust the inputs to compare &mdash; pine usually wins on absorbency and waste.';
+    }
+  }
+
+  allRanges.forEach(function(el){el.addEventListener('input',calc);});
+  [pPrice,sPrice].forEach(function(el){el.addEventListener('input',calc);});
+  pDump.addEventListener('change',calc);
+  calc();
+</script>
+</body>
+</html>
