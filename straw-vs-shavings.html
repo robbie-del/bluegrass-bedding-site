@@ -69,8 +69,8 @@
     .dumpnote b{color:var(--green);}
     .savings-box{border-radius:12px;padding:28px 16px;text-align:center;background:var(--green);border:3px solid var(--gold);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;}
     .savings-box .sh{font-size:18px;font-weight:900;letter-spacing:.5px;text-transform:uppercase;color:var(--gold);}
-    .savings-box .sv{font-size:160px;font-weight:900;color:#fff;line-height:.9;letter-spacing:-4px;}
-    .savings-box .sv small{display:block;font-size:22px;color:#fff;font-weight:900;margin-top:6px;letter-spacing:0;}
+    .savings-box .sv-amount{font-size:160px;font-weight:900;color:#fff;line-height:.9;letter-spacing:-4px;}
+    .savings-box .sv-label{font-size:26px;font-weight:900;color:#fff;letter-spacing:.02em;margin-top:4px;}
     .savings-box .sub{font-size:14px;color:#cfe0d6;line-height:1.5;}
     .savings-box .arrows{font-size:28px;color:var(--gold);letter-spacing:-4px;}
     .savings-box.flip{background:#6e2f2f;border-color:#c98b3a;}
@@ -78,8 +78,8 @@
     @media(max-width:860px){
       .savings-box{margin:0;padding:36px 16px;flex-direction:column;border-radius:10px;box-shadow:0 0 0 4px rgba(217,169,47,0.3);gap:14px;}
       .savings-box .arrows{display:none;}
-      .savings-box .sv{font-size:clamp(100px,42vw,180px);letter-spacing:-3px;line-height:1;}
-      .savings-box .sv small{font-size:clamp(18px,5vw,26px);}
+      .savings-box .sv-amount{font-size:clamp(80px,38vw,160px);letter-spacing:-3px;line-height:.95;}
+      .savings-box .sv-label{font-size:22px;}
       .savings-box .sh{font-size:16px;line-height:1.3;}
       .savings-box .sub{font-size:14px;}
     }
@@ -204,7 +204,8 @@
         <div class="savings-box" id="savings">
           <div class="arrows">← →</div>
           <div class="sh" id="savH">You Save with Bluegrass Bedding</div>
-          <div class="sv" id="savV">$0 <small>/ month</small></div>
+          <div class="sv-amount" id="savV">$0</div>
+          <div class="sv-label">/ month</div>
           <div class="sub" id="savS">across 20 stalls</div>
           <a href="quote.html" style="display:inline-block;margin-top:8px;background:var(--gold);color:var(--green)!important;padding:9px 16px;border-radius:6px;font-size:12px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;">Get a Quote →</a>
         </div>
@@ -371,7 +372,7 @@
     if(diff>=0){
       box.classList.remove('flip');
       $c('savH').textContent='You Save with Bluegrass Bedding';
-      $c('savV').innerHTML=money0(diff)+' <small>/ month</small>';
+      $c('savV').textContent=money0(diff);
       var pct = strawMon>0 ? Math.round(diff/strawMon*100) : 0;
       $c('savS').innerHTML='That\'s <b>'+money0(diff*12)+'/year</b> across '+stalls+' stall'+(stalls===1?'':'s')+' &mdash; about <b>'+pct+'% less</b> than straw.';
     } else {
