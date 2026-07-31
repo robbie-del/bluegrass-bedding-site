@@ -105,6 +105,6 @@ const BB_GALLERY = [
 
 const BB_SOCIAL = {
   instagram: "https://www.instagram.com/bluegrass.bedding/",
-  facebook:  "https://www.facebook.com/people/Bluegrass-Bedding/61584560581974/",
+  facebook:  "https://www.facebook.com/bluegrass.bedding",
   email:     "info@bluegrassbedding.com"
 };
