@@ -86,6 +86,13 @@ const BB_EVENTS = [
 const BB_GALLERY = [
 
   {
+    type:    "facebook",
+    url:     "https://www.facebook.com/share/p/1Jmf315tEZ/",
+    date:    "2026-07-31"
+    // Add   caption: "..."   and   event: "<event name>"   once we have the event details.
+  },
+
+  {
     type:    "instagram",
     url:     "https://www.instagram.com/p/DbO3zg1EZUv/",
     caption: "Built has been bedded on Bluegrass since April — and he keeps finding the winner's circle."
