@@ -104,7 +104,7 @@ const BB_GALLERY = [
    ------------------------------------------------------------ */
 
 const BB_SOCIAL = {
-  instagram: "",   // e.g. "https://www.instagram.com/bluegrassbedding/"
-  facebook:  "",   // e.g. "https://www.facebook.com/bluegrassbedding"
+  instagram: "https://www.instagram.com/bluegrass.bedding/",
+  facebook:  "",   // paste your Page's full URL from the browser address bar
   email:     "info@bluegrassbedding.com"
 };
