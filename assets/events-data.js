@@ -85,7 +85,12 @@ const BB_EVENTS = [
 
 const BB_GALLERY = [
 
-  // ── Add photos and social posts here. Delete this comment once you have one. ──
+  {
+    type:    "instagram",
+    url:     "https://www.instagram.com/p/DbO3zg1EZUv/",
+    caption: "Built has been bedded on Bluegrass since April — and he keeps finding the winner's circle."
+    // Add   date: "YYYY-MM-DD"   here (the day the post went up) to control where it sorts.
+  }
 
 ];
 

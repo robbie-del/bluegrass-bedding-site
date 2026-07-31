@@ -270,6 +270,7 @@
 
     photoItems = [];
     if (!visible.length) {
+      grid.className = 'gal-grid';
       grid.innerHTML =
         '<div class="bb-empty">' +
           '<i class="fas fa-camera-retro"></i>' +
@@ -279,6 +280,9 @@
         '</div>';
       return;
     }
+
+    // A 1-2 item grid would sit lopsided in three columns — narrow and centre it.
+    grid.className = 'gal-grid' + (visible.length === 1 ? ' gal-one' : visible.length === 2 ? ' gal-two' : '');
 
     grid.innerHTML = visible.map(function (item) {
       if (item.type === 'photo') {
