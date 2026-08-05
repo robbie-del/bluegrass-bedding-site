@@ -32,7 +32,14 @@
 
 const BB_EVENTS = [
 
-  // ── Add events here. Delete this comment once you have one. ──
+  {
+    name:      "Redmond Equestrian Mini Trial",
+    date:      "2026-08-09",
+    location:  "Redmond Equestrian at Champagne Run",
+    role:      "Proud Sponsor",
+    link:      "https://www.facebook.com/share/p/1Jmf315tEZ/",
+    linkLabel: "See the Announcement"
+  }
 
 ];
 
@@ -88,8 +95,9 @@ const BB_GALLERY = [
   {
     type:    "facebook",
     url:     "https://www.facebook.com/share/p/1Jmf315tEZ/",
-    date:    "2026-07-31"
-    // Add   caption: "..."   and   event: "<event name>"   once we have the event details.
+    caption: "Proud sponsor of the Redmond Equestrian Mini Trial.",
+    event:   "Redmond Equestrian Mini Trial",
+    date:    "2026-08-05"
   },
 
   {

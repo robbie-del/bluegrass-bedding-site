@@ -121,6 +121,13 @@
     upcoming.sort(function (a, b) { return (parseDate(a.date) || 0) - (parseDate(b.date) || 0); });
     past.sort(function (a, b) { return (parseDate(b.date) || 0) - (parseDate(a.date) || 0); });
 
+    // Narrow rows would sit hard against the left edge — widen and centre them.
+    function colClass(count) {
+      if (count === 1) return 'col-md-8 col-lg-5 d-flex';
+      if (count === 2) return 'col-md-6 col-lg-5 d-flex';
+      return 'col-md-6 col-lg-4 d-flex';
+    }
+
     if (!upcoming.length) {
       upcomingWrap.innerHTML =
         '<div class="col-12"><div class="bb-empty">' +
@@ -131,13 +138,13 @@
         '</div></div>';
     } else {
       upcomingWrap.innerHTML = upcoming.map(function (evt) {
-        return '<div class="col-md-6 col-lg-4 d-flex">' + eventCard(evt, false) + '</div>';
+        return '<div class="' + colClass(upcoming.length) + '">' + eventCard(evt, false) + '</div>';
       }).join('');
     }
 
     if (past.length && pastWrap && pastSection) {
       pastWrap.innerHTML = past.map(function (evt) {
-        return '<div class="col-md-6 col-lg-4 d-flex">' + eventCard(evt, true) + '</div>';
+        return '<div class="' + colClass(past.length) + '">' + eventCard(evt, true) + '</div>';
       }).join('');
       pastSection.hidden = false;
     }

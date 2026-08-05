@@ -532,8 +532,11 @@ section h2 { font-family: 'Assistant', sans-serif; font-size: 46px; font-weight:
 
 /* --- Gallery grid (masonry-style columns so mixed heights flow) --- */
 .gal-grid { column-count: 3; column-gap: 26px; }
+/* Column balancing gives poor results at one or two items — lay those out
+   with flex instead, so a short card can't leave a whole column empty. */
 .gal-grid.gal-one { column-count: 1; max-width: 480px; margin: 0 auto; }
-.gal-grid.gal-two { column-count: 2; max-width: 820px; margin: 0 auto; }
+.gal-grid.gal-two { column-count: auto; display: flex; align-items: flex-start; gap: 26px; max-width: 820px; margin: 0 auto; }
+.gal-grid.gal-two .gal-card { flex: 1 1 0; min-width: 0; margin-bottom: 0; }
 .gal-card {
   break-inside: avoid;
   -webkit-column-break-inside: avoid;
@@ -635,6 +638,8 @@ body.lb-open { overflow: hidden; }
 }
 @media (max-width: 767px) {
   .gal-grid, .gal-grid.gal-two { column-count: 1; }
+  .gal-grid.gal-two { display: block; }
+  .gal-grid.gal-two .gal-card { margin-bottom: 20px; }
   .gal-filters { margin-bottom: 32px; }
   .event-card-body { padding: 22px 20px 24px; }
   .lb-backdrop { padding: 14px; }
