@@ -75,6 +75,21 @@ const BB_EVENTS = [
      date:    "2026-05-08"                                  // optional
    },
 
+   --- A YOUTUBE VIDEO OR SHORT ------------------------------
+   Paste the URL straight from the address bar or the Share
+   button. Shorts, youtu.be links, and normal watch links all
+   work. Shorts automatically get a tall, phone-shaped frame.
+
+   {
+     type:    "youtube",
+     url:     "https://youtube.com/shorts/XXXXXXXXXXX",  // required
+     caption: "Optional line of your own text under the video.",
+     credit:  "Clip: Someone's Racing Stable",    // optional
+     orientation: "wide",                         // optional — force "wide" or "vertical"
+     event:   "Kentucky Spring Horse Show",       // optional
+     date:    "2026-05-08"                        // optional
+   },
+
    --- A FACEBOOK POST ---------------------------------------
    On the post, click the "..." menu → "Copy link", and paste
    it below. The post must be set to Public to embed.
@@ -91,6 +106,27 @@ const BB_EVENTS = [
    ------------------------------------------------------------ */
 
 const BB_GALLERY = [
+
+  {
+    type:    "youtube",
+    url:     "https://youtube.com/shorts/a_9w_u9LXMM",
+    caption: "Harley, the famous pony horse — they even made a Breyer model of him. He's bedded on Bluegrass pine pellets.",
+    date:    "2026-08-05"
+  },
+
+  {
+    type:    "photo",
+    src:     "assets/gallery/harley-stall.jpg",
+    caption: "Harley at the stall door, standing on fresh Bluegrass pine pellets.",
+    date:    "2026-08-05"
+  },
+
+  {
+    type:    "photo",
+    src:     "assets/gallery/harley-pellets.jpg",
+    caption: "Ultra low dust pine pellets going down in Harley's stall.",
+    date:    "2026-08-05"
+  },
 
   {
     type:    "facebook",

@@ -215,6 +215,37 @@
       '</div>';
   }
 
+  // Accepts any of the shapes YouTube hands out: /shorts/, youtu.be, /watch?v=, /embed/.
+  function youtubeId(url) {
+    var m = /(?:youtube\.com\/(?:shorts\/|embed\/|live\/|watch\?(?:[^#]*&)?v=)|youtu\.be\/)([A-Za-z0-9_-]{6,})/.exec(String(url));
+    return m ? m[1] : null;
+  }
+
+  function youtubeCard(item) {
+    var url = item.url.trim();
+    var id  = youtubeId(url);
+    if (!id) return '';
+    // Shorts are filmed vertically — give them a portrait frame unless told otherwise.
+    var vertical = item.orientation ? item.orientation === 'vertical' : /youtube\.com\/shorts\//.test(url);
+    return '' +
+      '<div class="gal-card gal-social">' +
+        '<div class="gal-embed gal-yt' + (vertical ? ' is-vertical' : '') + '">' +
+          '<iframe src="https://www.youtube-nocookie.com/embed/' + esc(id) + '" ' +
+            'title="' + esc(item.caption || 'Bluegrass Bedding on YouTube') + '" loading="lazy" ' +
+            'frameborder="0" allowfullscreen ' +
+            'allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share">' +
+          '</iframe>' +
+        '</div>' +
+        '<div class="gal-body">' +
+          (item.caption ? '<p class="gal-caption">' + esc(item.caption) + '</p>' : '') +
+          (item.credit ? '<p class="gal-credit">' + esc(item.credit) + '</p>' : '') +
+          '<a class="gal-source" href="' + esc(url) + '" target="_blank" rel="noopener noreferrer">' +
+            '<i class="fab fa-youtube"></i>Watch on YouTube</a>' +
+          galleryMeta(item) +
+        '</div>' +
+      '</div>';
+  }
+
   // Facebook's plugin renders at a fixed pixel width, so it has to be told
   // the column width. Measured once the grid is laid out, and again on resize.
   function sizeFacebookEmbeds() {
@@ -253,17 +284,30 @@
     document.body.appendChild(script);
   }
 
+  // Gallery entries group into three buckets, which is what the filter bar offers.
+  function categoryOf(type) {
+    if (type === 'photo') return 'photo';
+    if (type === 'youtube') return 'video';
+    if (type === 'instagram' || type === 'facebook') return 'social';
+    return null;
+  }
+
+  // Skip anything that would render as an empty card.
+  function isUsable(item) {
+    if (!item || !categoryOf(item.type)) return false;
+    if (item.type === 'photo') return !!item.src;
+    if (!isHttpUrl(item.url)) return false;
+    if (item.type === 'youtube') return !!youtubeId(item.url);
+    return true;
+  }
+
   function renderGallery(filter) {
     var grid = document.getElementById('bb-gallery-grid');
     if (!grid) return;
 
     var visible = gallery.filter(function (item) {
-      if (!item || !item.type) return false;
-      if (item.type === 'photo' && !item.src) return false;
-      if ((item.type === 'instagram' || item.type === 'facebook') && !isHttpUrl(item.url)) return false;
-      if (filter === 'photo')  return item.type === 'photo';
-      if (filter === 'social') return item.type === 'instagram' || item.type === 'facebook';
-      return true;
+      if (!isUsable(item)) return false;
+      return filter === 'all' || categoryOf(item.type) === filter;
     });
 
     // Newest first; entries without a date keep their order at the end.
@@ -298,6 +342,7 @@
       }
       if (item.type === 'instagram') return instagramCard(item);
       if (item.type === 'facebook')  return facebookCard(item);
+      if (item.type === 'youtube')   return youtubeCard(item);
       return '';
     }).join('');
 
@@ -309,11 +354,19 @@
     var bar = document.getElementById('bb-gallery-filters');
     if (!bar) return;
 
-    var hasPhoto  = gallery.some(function (i) { return i && i.type === 'photo'; });
-    var hasSocial = gallery.some(function (i) { return i && (i.type === 'instagram' || i.type === 'facebook'); });
+    var LABELS = { photo: 'Photos', video: 'Video', social: 'Social Posts' };
+    var present = ['photo', 'video', 'social'].filter(function (cat) {
+      return gallery.some(function (i) { return isUsable(i) && categoryOf(i.type) === cat; });
+    });
 
     // Only worth showing the filter bar when there is a real mix to filter.
-    if (!hasPhoto || !hasSocial) { bar.hidden = true; return; }
+    if (present.length < 2) { bar.hidden = true; return; }
+
+    bar.innerHTML = '<button type="button" class="gal-filter active" data-filter="all" aria-pressed="true">All</button>' +
+      present.map(function (cat) {
+        return '<button type="button" class="gal-filter" data-filter="' + cat + '" aria-pressed="false">' +
+          LABELS[cat] + '</button>';
+      }).join('');
     bar.hidden = false;
 
     bar.addEventListener('click', function (e) {
