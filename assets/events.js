@@ -1,15 +1,15 @@
 /* ============================================================
    Bluegrass Bedding — Events & Gallery renderer
-   Reads BB_EVENTS / BB_GALLERY / BB_SOCIAL from events-data.js
-   and builds the Events page. No editing needed here — add
-   content in assets/events-data.js instead.
+   Loads assets/events-data.json and builds the Events page.
+   No editing needed here — content is managed through the
+   Pages CMS admin panel (or by editing events-data.json).
    ============================================================ */
 (function () {
   'use strict';
 
-  var events  = (typeof BB_EVENTS  !== 'undefined' && Array.isArray(BB_EVENTS))  ? BB_EVENTS.slice()  : [];
-  var gallery = (typeof BB_GALLERY !== 'undefined' && Array.isArray(BB_GALLERY)) ? BB_GALLERY.slice() : [];
-  var social  = (typeof BB_SOCIAL  !== 'undefined' && BB_SOCIAL) ? BB_SOCIAL : {};
+  var events  = [];
+  var gallery = [];
+  var social  = {};
 
   /* ---------- helpers ---------- */
 
@@ -487,9 +487,20 @@
     });
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
+  function start(data) {
+    data    = data || {};
+    events  = Array.isArray(data.events)  ? data.events  : [];
+    gallery = Array.isArray(data.gallery) ? data.gallery : [];
+    social  = data.social || {};
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
   }
+
+  fetch('assets/events-data.json', { cache: 'no-store' })
+    .then(function (res) { return res.ok ? res.json() : null; })
+    .then(start)
+    .catch(function () { start(null); });
 })();

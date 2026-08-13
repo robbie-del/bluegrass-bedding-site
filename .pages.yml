@@ -1,0 +1,127 @@
+# ============================================================
+# Pages CMS configuration for bluegrassbedding.com
+# This powers the admin panel at https://app.pagescms.org
+# (sign in with GitHub, open robbie-del/bluegrass-bedding-site)
+# ============================================================
+
+media:
+  input: assets/gallery
+  output: assets/gallery
+
+content:
+  - name: events-page
+    label: Events Page
+    type: file
+    path: assets/events-data.json
+    fields:
+      - name: events
+        label: Events We Sponsor
+        description: Shows, sales, and benefit events. The page automatically sorts them into "upcoming" and "past" based on the date — you never have to move one by hand.
+        type: object
+        list: true
+        fields:
+          - name: name
+            label: Event name
+            type: string
+            required: true
+          - name: date
+            label: First day
+            type: date
+            required: true
+          - name: endDate
+            label: Last day (only for multi-day events)
+            type: date
+          - name: location
+            label: Location
+            type: string
+          - name: role
+            label: Our role
+            description: The gold badge on the card, e.g. "Official Bedding Sponsor" or "Proud Sponsor"
+            type: string
+          - name: description
+            label: Description
+            type: text
+          - name: image
+            label: Event photo (optional)
+            type: image
+          - name: link
+            label: Link (optional)
+            description: Paste a web address to add a button to the card
+            type: string
+          - name: linkLabel
+            label: Button text
+            description: Defaults to "Event Details" if left blank
+            type: string
+
+      - name: gallery
+        label: Gallery — Photos & Social Posts
+        description: The "Horses on Bluegrass" section. Posts with a date sort newest first.
+        type: object
+        list: true
+        fields:
+          - name: type
+            label: Kind of post
+            type: select
+            required: true
+            options:
+              values:
+                - value: photo
+                  label: Photo (upload a file)
+                - value: instagram
+                  label: Instagram post (paste the link)
+                - value: facebook
+                  label: Facebook post (paste the link)
+                - value: youtube
+                  label: YouTube video or Short (paste the link)
+          - name: src
+            label: Photo file
+            description: Only for "Photo" posts — upload or pick the image here
+            type: image
+          - name: url
+            label: Post link
+            description: Only for Instagram / Facebook / YouTube — paste the post's web address. The post must be public.
+            type: string
+          - name: caption
+            label: Caption
+            type: text
+          - name: credit
+            label: Credit
+            description: Optional, e.g. "Photo. Sunrise Stables"
+            type: string
+          - name: event
+            label: Related event name
+            description: Optional — shows as a small tag on the card
+            type: string
+          - name: date
+            label: Date
+            description: The day the photo was taken or the post went up — controls sorting
+            type: date
+          - name: height
+            label: Card height in pixels
+            description: Facebook posts only — make it taller for long posts or videos (default 560)
+            type: number
+          - name: orientation
+            label: Video shape
+            description: YouTube only — Shorts are detected automatically, so usually leave blank
+            type: select
+            options:
+              values:
+                - value: wide
+                  label: Wide (normal video)
+                - value: vertical
+                  label: Vertical (phone-shaped)
+
+      - name: social
+        label: Social Buttons
+        description: The "tag us" buttons at the bottom of the page. Clear a value to hide that button.
+        type: object
+        fields:
+          - name: instagram
+            label: Instagram page URL
+            type: string
+          - name: facebook
+            label: Facebook page URL
+            type: string
+          - name: email
+            label: Email for "Send Us a Photo"
+            type: string
