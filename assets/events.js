@@ -199,6 +199,31 @@
       '</div>';
   }
 
+  // Facebook won't render reels inside its embed plugin (logged-out viewers
+  // get "Video Unavailable"), so reel links become a click-through card.
+  function isFacebookReel(url) {
+    return /facebook\.com\/(share\/r\/|reel\/)/i.test(String(url));
+  }
+
+  function facebookReelCard(item) {
+    var url = item.url.trim();
+    return '' +
+      '<div class="gal-card gal-social">' +
+        '<a class="gal-reel" href="' + esc(url) + '" target="_blank" rel="noopener noreferrer" ' +
+          'aria-label="Watch the reel on Facebook">' +
+          '<span class="gal-reel-icon"><i class="fas fa-play"></i></span>' +
+          '<span class="gal-reel-label"><i class="fab fa-facebook"></i>Watch the Reel on Facebook</span>' +
+        '</a>' +
+        '<div class="gal-body">' +
+          (item.caption ? '<p class="gal-caption">' + esc(item.caption) + '</p>' : '') +
+          (item.credit ? '<p class="gal-credit">' + esc(item.credit) + '</p>' : '') +
+          '<a class="gal-source" href="' + esc(url) + '" target="_blank" rel="noopener noreferrer">' +
+            '<i class="fab fa-facebook"></i>View on Facebook</a>' +
+          galleryMeta(item) +
+        '</div>' +
+      '</div>';
+  }
+
   function facebookCard(item) {
     var height = parseInt(item.height, 10);
     if (!height || height < 200 || height > 1400) height = 560;
@@ -341,7 +366,7 @@
         return photoCard(item, photoItems.length - 1);
       }
       if (item.type === 'instagram') return instagramCard(item);
-      if (item.type === 'facebook')  return facebookCard(item);
+      if (item.type === 'facebook')  return isFacebookReel(item.url) ? facebookReelCard(item) : facebookCard(item);
       if (item.type === 'youtube')   return youtubeCard(item);
       return '';
     }).join('');
