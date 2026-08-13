@@ -1,4 +1,14 @@
 {
+  "events": [
+    {
+      "name": "Redmond Equestrian Mini Trial",
+      "date": "2026-08-09",
+      "location": "Redmond Equestrian at Champagne Run",
+      "role": "Proud Sponsor",
+      "link": "https://www.facebook.com/share/p/1Jmf315tEZ/",
+      "linkLabel": "See the Announcement"
+    }
+  ],
   "gallery": [
     {
       "type": "facebook",
