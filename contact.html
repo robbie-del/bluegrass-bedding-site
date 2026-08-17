@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -90,24 +90,24 @@
             <input type="hidden" name="_subject" value="New Contact Message — Bluegrass Bedding Racing">
             <div class="row g-3">
               <div class="col-md-6">
-                <label class="form-label" style="color:rgba(255,255,255,0.7);">Full Name *</label>
-                <input type="text" name="name" class="form-control contact-input" placeholder="Your name" required>
+                <label class="form-label" for="contact-name" style="color:rgba(255,255,255,0.7);">Full Name *</label>
+                <input id="contact-name" type="text" name="name" class="form-control contact-input" placeholder="Your name" required>
               </div>
               <div class="col-md-6">
-                <label class="form-label" style="color:rgba(255,255,255,0.7);">Barn / Track / Facility</label>
-                <input type="text" name="facility" class="form-control contact-input" placeholder="Facility name">
+                <label class="form-label" for="contact-facility" style="color:rgba(255,255,255,0.7);">Barn / Track / Facility</label>
+                <input id="contact-facility" type="text" name="facility" class="form-control contact-input" placeholder="Facility name">
               </div>
               <div class="col-md-6">
-                <label class="form-label" style="color:rgba(255,255,255,0.7);">Email Address *</label>
-                <input type="email" name="email" class="form-control contact-input" placeholder="your@email.com" required>
+                <label class="form-label" for="contact-email" style="color:rgba(255,255,255,0.7);">Email Address *</label>
+                <input id="contact-email" type="email" name="email" class="form-control contact-input" placeholder="your@email.com" required>
               </div>
               <div class="col-md-6">
-                <label class="form-label" style="color:rgba(255,255,255,0.7);">Phone Number</label>
-                <input type="tel" name="phone" class="form-control contact-input" placeholder="Optional">
+                <label class="form-label" for="contact-phone" style="color:rgba(255,255,255,0.7);">Phone Number</label>
+                <input id="contact-phone" type="tel" name="phone" class="form-control contact-input" placeholder="Optional">
               </div>
               <div class="col-12">
-                <label class="form-label" style="color:rgba(255,255,255,0.7);">Topic *</label>
-                <select name="topic" class="form-select contact-input" required>
+                <label class="form-label" for="contact-topic" style="color:rgba(255,255,255,0.7);">Topic *</label>
+                <select id="contact-topic" name="topic" class="form-select contact-input" required>
                   <option value="">— Select a topic —</option>
                   <option>Pricing & Quote</option>
                   <option>HISA / Chain of Custody Documentation</option>
@@ -119,8 +119,8 @@
                 </select>
               </div>
               <div class="col-12">
-                <label class="form-label" style="color:rgba(255,255,255,0.7);">Message *</label>
-                <textarea name="message" class="form-control contact-input" rows="5" placeholder="Describe your operation, stall count, delivery location, or any specific questions..." required></textarea>
+                <label class="form-label" for="contact-message" style="color:rgba(255,255,255,0.7);">Message *</label>
+                <textarea id="contact-message" name="message" class="form-control contact-input" rows="5" placeholder="Describe your operation, stall count, delivery location, or any specific questions..." required></textarea>
               </div>
             </div>
 

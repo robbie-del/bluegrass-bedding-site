@@ -1,0 +1,67 @@
+{
+  "events": [
+    {
+      "name": "Far Future Championship",
+      "date": "2099-06-10",
+      "endDate": "2099-06-12",
+      "location": "Kentucky Horse Park",
+      "role": "Official Bedding Sponsor",
+      "description": "A multi-day event used to exercise the upcoming-events path.",
+      "image": "assets/gallery/harley-stall.jpg",
+      "link": "https://example.com/far-future",
+      "linkLabel": "Event Details"
+    },
+    {
+      "name": "Second Far Future Show",
+      "date": "2099-09-01",
+      "location": "Champagne Run",
+      "role": "Proud Sponsor"
+    },
+    {
+      "name": "Long Past Benefit Sale",
+      "date": "2001-03-04",
+      "location": "Goshen, KY",
+      "role": "Proud Sponsor",
+      "description": "A past event used to exercise the past-events path."
+    }
+  ],
+  "gallery": [
+    {
+      "type": "photo",
+      "src": "assets/gallery/harley-stall.jpg",
+      "caption": "First fixture photo",
+      "credit": "Photo: Fixture Stables",
+      "event": "Far Future Championship",
+      "date": "2099-06-11"
+    },
+    {
+      "type": "photo",
+      "src": "assets/gallery/harley-pellets.jpg",
+      "caption": "Second fixture photo",
+      "date": "2099-06-10"
+    },
+    {
+      "type": "youtube",
+      "url": "https://youtube.com/shorts/aBcDeF12345",
+      "caption": "Fixture short",
+      "date": "2099-05-01"
+    },
+    {
+      "type": "facebook",
+      "url": "https://www.facebook.com/share/p/fixturePost/",
+      "caption": "Fixture Facebook post",
+      "date": "2099-04-01"
+    },
+    {
+      "type": "instagram",
+      "url": "https://www.instagram.com/p/FixturePost1/",
+      "caption": "Fixture Instagram post",
+      "date": "2099-03-01"
+    }
+  ],
+  "social": {
+    "instagram": "https://www.instagram.com/bluegrass.bedding/",
+    "facebook": "https://www.facebook.com/bluegrass.bedding",
+    "email": "info@bluegrassbedding.com"
+  }
+}
