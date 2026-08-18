@@ -67,6 +67,13 @@
 
   /* ---------- events ---------- */
 
+  // Narrow rows would sit hard against the left edge — widen and centre them.
+  function colClass(count) {
+    if (count === 1) return 'col-md-8 col-lg-5 d-flex';
+    if (count === 2) return 'col-md-6 col-lg-5 d-flex';
+    return 'col-md-6 col-lg-4 d-flex';
+  }
+
   function eventCard(evt, isPast) {
     var parts = [];
     parts.push('<div class="event-card' + (isPast ? ' is-past' : '') + '">');
@@ -120,13 +127,6 @@
 
     upcoming.sort(function (a, b) { return (parseDate(a.date) || 0) - (parseDate(b.date) || 0); });
     past.sort(function (a, b) { return (parseDate(b.date) || 0) - (parseDate(a.date) || 0); });
-
-    // Narrow rows would sit hard against the left edge — widen and centre them.
-    function colClass(count) {
-      if (count === 1) return 'col-md-8 col-lg-5 d-flex';
-      if (count === 2) return 'col-md-6 col-lg-5 d-flex';
-      return 'col-md-6 col-lg-4 d-flex';
-    }
 
     if (!upcoming.length) {
       upcomingWrap.innerHTML =
@@ -522,6 +522,52 @@
     } else {
       init();
     }
+  }
+
+  /* ---------- test-only export shim ----------
+     Inert in the browser: nothing sets __BB_EXPOSE_INTERNALS__ in production, so
+     this block never runs for a real visitor and adds no globals. The unit test
+     harness sets the flag before evaluating this file so it can exercise the
+     pure helpers directly. Keep this list in sync when adding or renaming a
+     helper — see AGENTS.md. */
+  if (typeof window !== 'undefined' && window.__BB_EXPOSE_INTERNALS__) {
+    window.__bbEvents = {
+      // pure helpers
+      esc: esc,
+      parseDate: parseDate,
+      formatRange: formatRange,
+      formatShort: formatShort,
+      endOfEvent: endOfEvent,
+      isHttpUrl: isHttpUrl,
+      colClass: colClass,
+      categoryOf: categoryOf,
+      isUsable: isUsable,
+      isFacebookReel: isFacebookReel,
+      youtubeId: youtubeId,
+      // markup builders
+      eventCard: eventCard,
+      galleryMeta: galleryMeta,
+      photoCard: photoCard,
+      instagramCard: instagramCard,
+      facebookCard: facebookCard,
+      facebookReelCard: facebookReelCard,
+      youtubeCard: youtubeCard,
+      // renderers
+      renderEvents: renderEvents,
+      renderGallery: renderGallery,
+      renderSocialCta: renderSocialCta,
+      setupFilters: setupFilters,
+      setupLightbox: setupLightbox,
+      sizeFacebookEmbeds: sizeFacebookEmbeds,
+      start: start,
+      // lets a test seed the module's data without going through fetch()
+      __setData: function (data) {
+        data    = data || {};
+        events  = Array.isArray(data.events)  ? data.events  : [];
+        gallery = Array.isArray(data.gallery) ? data.gallery : [];
+        social  = data.social || {};
+      }
+    };
   }
 
   fetch('assets/events-data.json', { cache: 'no-store' })

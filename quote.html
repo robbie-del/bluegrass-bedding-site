@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Request a Quote — Bluegrass Bedding</title>
+  <meta name="description" content="Request a quote for Bluegrass Bedding pine pellets and micro or macro flake shavings. Pallet and full-truckload pricing with delivery across Kentucky and beyond.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&family=Assistant:wght@200..800&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
@@ -75,13 +76,13 @@
           <form action="https://formspree.io/f/mgoqkpoj" method="POST" id="quoteForm">
             <input type="hidden" name="_subject" value="New Quote Request — Bluegrass Bedding">
             <div class="row g-3">
-              <div class="col-md-6"><label class="form-label">Full Name *</label><input type="text" name="name" class="form-control" required></div>
-              <div class="col-md-6"><label class="form-label">Barn / Track / Facility *</label><input type="text" name="facility" class="form-control" required></div>
-              <div class="col-md-6"><label class="form-label">Email Address *</label><input type="email" name="email" class="form-control" required></div>
-              <div class="col-md-6"><label class="form-label">Phone Number *</label><input type="tel" name="phone" class="form-control" required></div>
-              <div class="col-12"><label class="form-label">Delivery Address / ZIP Code *</label><input type="text" name="delivery_address" class="form-control" placeholder="Full address or ZIP for freight estimate" required></div>
-              <div class="col-md-6"><label class="form-label">Product(s) Needed *</label>
-                <select name="product" class="form-select" required>
+              <div class="col-md-6"><label class="form-label" for="quote-name">Full Name *</label><input type="text" id="quote-name" name="name" class="form-control" required></div>
+              <div class="col-md-6"><label class="form-label" for="quote-facility">Barn / Track / Facility *</label><input type="text" id="quote-facility" name="facility" class="form-control" required></div>
+              <div class="col-md-6"><label class="form-label" for="quote-email">Email Address *</label><input type="email" id="quote-email" name="email" class="form-control" required></div>
+              <div class="col-md-6"><label class="form-label" for="quote-phone">Phone Number *</label><input type="tel" id="quote-phone" name="phone" class="form-control" required></div>
+              <div class="col-12"><label class="form-label" for="quote-delivery-address">Delivery Address / ZIP Code *</label><input type="text" id="quote-delivery-address" name="delivery_address" class="form-control" placeholder="Full address or ZIP for freight estimate" required></div>
+              <div class="col-md-6"><label class="form-label" for="quote-product">Product(s) Needed *</label>
+                <select id="quote-product" name="product" class="form-select" required>
                   <option value="">— Select —</option>
                   <option>Pine Pellets (40 lb bags)</option>
                   <option>Micro Flake Shavings (3.5 cu ft)</option>
@@ -90,8 +91,8 @@
                   <option>Multiple products — see notes</option>
                 </select>
               </div>
-              <div class="col-md-6"><label class="form-label">Estimated Volume *</label>
-                <select name="volume" class="form-select" required>
+              <div class="col-md-6"><label class="form-label" for="quote-volume">Estimated Volume *</label>
+                <select id="quote-volume" name="volume" class="form-select" required>
                   <option value="">— Select —</option>
                   <option>1–5 pallets</option>
                   <option>6–10 pallets</option>
@@ -101,17 +102,17 @@
                   <option>Not sure — need guidance</option>
                 </select>
               </div>
-              <div class="col-md-6"><label class="form-label">Number of Stalls</label><input type="number" name="stall_count" class="form-control" placeholder="Helps us size your order"></div>
-              <div class="col-md-6"><label class="form-label">How Soon Do You Need It?</label>
-                <select name="timeline" class="form-select">
+              <div class="col-md-6"><label class="form-label" for="quote-stall-count">Number of Stalls</label><input type="number" id="quote-stall-count" name="stall_count" class="form-control" placeholder="Helps us size your order"></div>
+              <div class="col-md-6"><label class="form-label" for="quote-timeline">How Soon Do You Need It?</label>
+                <select id="quote-timeline" name="timeline" class="form-select">
                   <option>As soon as possible</option>
                   <option>Within 2 weeks</option>
                   <option>Within a month</option>
                   <option>Just pricing for now</option>
                 </select>
               </div>
-              <div class="col-12"><label class="form-label">Additional Notes</label>
-                <textarea name="notes" class="form-control" rows="4" placeholder="Unloading equipment, access requirements, recurring order frequency, current bedding used..."></textarea>
+              <div class="col-12"><label class="form-label" for="quote-notes">Additional Notes</label>
+                <textarea id="quote-notes" name="notes" class="form-control" rows="4" placeholder="Unloading equipment, access requirements, recurring order frequency, current bedding used..."></textarea>
               </div>
             </div>
             <div class="mt-3 p-3 rounded" style="background:#f0faf9;border:1px solid #0C7479;">

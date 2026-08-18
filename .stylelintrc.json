@@ -1,0 +1,30 @@
+{
+  "extends": "stylelint-config-standard",
+  "ignoreFiles": ["node_modules/**", "previous revisions/**"],
+  "_comment": [
+    "site.css is deliberately written as compact one-line rules and uses rgba()/quoted",
+    "font names throughout. The rules disabled below only enforce a different authoring",
+    "style; reformatting 37KB of working CSS would be a large, risky, zero-benefit diff.",
+    "Everything that catches a real defect stays on."
+  ],
+  "rules": {
+    "declaration-block-single-line-max-declarations": null,
+    "color-function-alias-notation": null,
+    "font-family-name-quotes": null,
+    "keyframes-name-pattern": null,
+    "declaration-no-important": null,
+    "no-descending-specificity": null,
+    "selector-class-pattern": null,
+    "custom-property-empty-line-before": null,
+    "comment-empty-line-before": null,
+    "rule-empty-line-before": null,
+    "declaration-empty-line-before": null,
+    "at-rule-empty-line-before": null,
+    "color-hex-length": null,
+    "alpha-value-notation": null,
+    "color-function-notation": null,
+    "shorthand-property-no-redundant-values": null,
+    "value-keyword-case": null,
+    "media-feature-range-notation": null
+  }
+}

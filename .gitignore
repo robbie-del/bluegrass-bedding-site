@@ -4,3 +4,12 @@ desktop.ini
 *.log
 previous revisions/
 .claude/
+.netlify/
+
+# Tooling — never deployed, Netlify serves only the static files
+node_modules/
+coverage/
+test-results/
+playwright-report/
+blob-report/
+.playwright/

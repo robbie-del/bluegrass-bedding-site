@@ -1,0 +1,15 @@
+# Bluegrass Bedding — Netlify configuration
+#
+# This repo gained a package.json for test/lint tooling only. The site itself is
+# still plain static HTML with no build step, so this file pins that behavior
+# explicitly: Netlify must publish the repository root as-is and must not try to
+# infer and run a build from package.json.
+#
+# node_modules/ is gitignored and is dev-only tooling; it must never be deployed.
+
+[build]
+  publish = "."
+  command = ""
+
+[build.processing]
+  skip_processing = false
