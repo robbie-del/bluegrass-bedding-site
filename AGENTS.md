@@ -2,6 +2,10 @@
 
 This is a static HTML/CSS/JavaScript website. Preserve the existing architecture and use pull requests for changes to main.
 
+## Hard rule: no idle retry loops
+
+If a merge, pull request, deployment, sync, pull, or other task fails or is blocked, you may try it at most 3 times in total, in case whatever was blocking it clears. After the third failed attempt, stop, report the status once, and wait for Robbie to respond or for genuinely new information to arrive (a new commit, comment, review, CI result, or event). Never retry on a schedule (for example hourly) for hours or days, and never re-attempt when nothing has changed and Robbie hasn't responded. Reason: an automation once retried every hour for 72 hours with no changes and burned tokens for nothing.
+
 ## Shared Git sync routine for Claude and Codex
 
 This section records Robbie's authorized Mac workflow. It does not schedule jobs on other contributors' computers or replace this repository's task, review, testing, or release requirements.
