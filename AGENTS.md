@@ -4,7 +4,7 @@ This is a static HTML/CSS/JavaScript website. Preserve the existing architecture
 
 ## Hard rule: no idle retry loops
 
-Never retry, merge, pull, deploy, poll, or re-attempt a task in a loop when there is no new activity, no user response, or Robbie is unavailable. If a PR, merge, deployment, or task has no changes since the last attempt, do not retry it on a schedule (for example hourly) for hours or days. Make one attempt, report the status once, and then wait for Robbie to respond or for genuinely new information to arrive (a new commit, comment, review, CI result, or event). This applies to merge attempts, pull requests, deployments, syncs, and any background polling. Reason: an automation once retried every hour for 72 hours with no changes and burned tokens for nothing.
+If a merge, pull request, deployment, sync, pull, or other task fails or is blocked, you may try it at most 3 times in total, in case whatever was blocking it clears. After the third failed attempt, stop, report the status once, and wait for Robbie to respond or for genuinely new information to arrive (a new commit, comment, review, CI result, or event). Never retry on a schedule (for example hourly) for hours or days, and never re-attempt when nothing has changed and Robbie hasn't responded. Reason: an automation once retried every hour for 72 hours with no changes and burned tokens for nothing.
 
 ## Shared Git sync routine for Claude and Codex
 
