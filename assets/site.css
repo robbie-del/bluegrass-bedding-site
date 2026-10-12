@@ -198,15 +198,6 @@ section h2 { font-family: 'Assistant', sans-serif; font-size: 46px; font-weight:
 .contact-input:focus { background: rgba(255,255,255,0.09) !important; border-color: var(--gold) !important; box-shadow: 0 0 0 0.2rem rgba(201,168,76,0.2) !important; color: #fff !important; }
 .contact-input option { background: var(--navy); color: #fff; }
 
-/* --- Audience Switcher Banner (all pages) --- */
-.aud-banner { background: #060d18; border-bottom: 1px solid rgba(201,168,76,0.25); padding: 9px 0; }
-.aud-banner .container { display: flex; justify-content: center; align-items: center; gap: 0; flex-wrap: wrap; }
-.aud-link { color: rgba(255,255,255,0.4); font-size: 11px !important; font-weight: 500 !important; letter-spacing: 0.13em; text-transform: uppercase; text-decoration: none !important; padding: 4px 20px; transition: color 0.25s; white-space: nowrap; }
-.aud-link:hover { color: rgba(255,255,255,0.75); }
-.aud-link.active { color: var(--gold); }
-.aud-link i { font-size: 10px !important; margin-right: 6px; }
-.aud-sep { color: rgba(255,255,255,0.15); font-size: 14px !important; user-select: none; }
-
 /* --- FAQ answer max-height for long answers --- */
 .faq-item.active .faq-answer { max-height: 800px; }
 
@@ -214,134 +205,6 @@ section h2 { font-family: 'Assistant', sans-serif; font-size: 46px; font-weight:
 .pricing-notes { background: var(--navy); padding: 40px 0; border-top: 1px solid rgba(201,168,76,0.2); }
 .pricing-notes li { color: rgba(255,255,255,0.6); margin-bottom: 8px; font-size: 14px !important; }
 .pricing-notes a { color: var(--gold); }
-
-/* --- Segment Gate / Audience Chooser --- */
-.segment-gate {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  display: none;
-  align-items: flex-start;
-  justify-content: center;
-  background: rgba(5, 10, 18, 0.98);
-  padding: 32px 20px;
-  overflow-y: auto;
-}
-.segment-gate.active { display: flex; }
-@keyframes gateFadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
-.segment-gate-inner {
-  max-width: 1080px;
-  width: 100%;
-  text-align: center;
-  padding: 24px 0 40px;
-  animation: gateFadeIn 0.45s ease;
-}
-.segment-gate-logo img { width: 130px; margin-bottom: 36px; }
-.segment-gate h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 40px;
-  font-weight: 900;
-  color: #fff;
-  margin-bottom: 10px;
-  line-height: 1.15;
-}
-.segment-gate-sub {
-  color: rgba(255,255,255,0.45);
-  font-size: 16px !important;
-  margin-bottom: 44px;
-  font-weight: 300 !important;
-}
-.segment-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin-bottom: 28px;
-}
-.segment-card {
-  position: relative;
-  border-radius: 5px;
-  overflow: hidden;
-  height: 380px;
-  display: flex;
-  align-items: flex-end;
-  text-decoration: none !important;
-  border: 2px solid rgba(255,255,255,0.08);
-  transition: border-color 0.3s, transform 0.3s;
-  cursor: pointer;
-}
-.segment-card:hover { border-color: var(--gold); transform: translateY(-5px); }
-.segment-card-bg {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  transition: transform 0.55s ease;
-}
-.segment-card:hover .segment-card-bg { transform: scale(1.05); }
-.segment-card-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(5,10,18,0.05) 0%, rgba(5,10,18,0.65) 45%, rgba(5,10,18,0.96) 100%);
-}
-.segment-card-content {
-  position: relative;
-  z-index: 2;
-  padding: 28px 24px;
-  width: 100%;
-  text-align: left;
-}
-.segment-card-icon {
-  width: 44px;
-  height: 44px;
-  background: rgba(201,168,76,0.18);
-  border: 1px solid rgba(201,168,76,0.4);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 14px;
-}
-.segment-card-icon i { color: var(--gold); font-size: 18px !important; }
-.segment-card-content h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 22px;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 6px;
-  line-height: 1.2;
-}
-.segment-card-desc {
-  font-size: 13px !important;
-  color: rgba(255,255,255,0.6);
-  line-height: 1.65;
-  margin-bottom: 18px;
-  font-weight: 300 !important;
-}
-.segment-card-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--gold);
-  color: var(--navy) !important;
-  font-size: 11px !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  padding: 9px 18px;
-  border-radius: 2px;
-  transition: background 0.2s;
-}
-.segment-card:hover .segment-card-cta { background: var(--gold-light); }
-.segment-skip {
-  color: rgba(255,255,255,0.25);
-  font-size: 13px !important;
-  text-decoration: none !important;
-  transition: color 0.3s;
-  display: inline-block;
-  margin-top: 4px;
-  font-weight: 300 !important;
-}
-.segment-skip:hover { color: rgba(255,255,255,0.55); }
 
 /* Switch audience bar (shown on show.html / boarding.html) */
 .audience-bar {
@@ -394,17 +257,6 @@ section h2 { font-family: 'Assistant', sans-serif; font-size: 46px; font-weight:
 .benefit-card h4 { font-family: 'Assistant', sans-serif; font-weight: 700; font-size: 18px !important; color: #fff; margin-bottom: 10px; }
 .benefit-card p { font-size: 14px !important; color: rgba(255,255,255,0.55); line-height: 1.75; margin: 0; }
 
-/* Responsive segment gate */
-@media (max-width: 991px) {
-  .segment-cards { grid-template-columns: 1fr; gap: 14px; }
-  .segment-card { height: 240px; }
-  .segment-gate h2 { font-size: 28px; }
-}
-@media (min-width: 768px) and (max-width: 991px) {
-  .segment-cards { grid-template-columns: repeat(3, 1fr); }
-  .segment-card { height: 300px; }
-}
-
 /* --- Photo feature (full-width photo with text overlay) --- */
 .photo-feature { position: relative; overflow: hidden; display: flex; align-items: center; }
 .photo-feature > img { width: 100%; height: 520px; object-fit: cover; object-position: center 65%; display: block; }
@@ -455,10 +307,6 @@ section h2 { font-family: 'Assistant', sans-serif; font-size: 46px; font-weight:
   .hero-cta-group { flex-direction: column; }
   .cta-banner .text-lg-end a { display: block; margin: 0 0 12px 0 !important; }
   section h2 { font-size: 28px; }
-  .segment-gate h2 { font-size: 24px; }
-  .segment-card { height: 200px; }
-  .segment-gate-logo img { width: 100px; margin-bottom: 24px; }
-  .segment-gate-sub { margin-bottom: 24px; }
   /* Product showcase caption drops below the photo onto solid navy for readability */
   .showcase-caption { position: static !important; background: var(--navy); padding: 28px 16px !important; }
   .showcase-caption .row { --bs-gutter-y: 18px; }
@@ -669,4 +517,40 @@ body.lb-open { overflow: hidden; }
   .lb-backdrop { padding: 14px; }
   .lb-nav { width: 40px; height: 40px; }
   .lb-stage { gap: 8px; }
+}
+
+/* --- Home page (bulk / semi-load focus) --- */
+.home-hero { min-height: 82vh; }
+.load-card { background: #fff; border: 1px solid #e6e1d6; border-top: 4px solid var(--green); border-radius: 4px; padding: 36px 32px; height: 100%; box-shadow: 0 4px 24px rgba(10,22,40,0.06); }
+.load-card-num { font-family: 'Playfair Display', serif !important; font-size: 56px !important; font-weight: 900 !important; color: var(--navy); line-height: 1; margin-bottom: 8px; }
+.load-card-num small { font-family: 'Assistant', sans-serif; font-size: 18px; font-weight: 600; color: var(--green); text-transform: uppercase; letter-spacing: 0.1em; }
+.load-card h3 { font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 16px; }
+.load-card ul, .why-list { list-style: none; padding: 0; margin: 0; }
+.load-card li { color: #555; font-size: 15px !important; padding: 6px 0; border-bottom: 1px solid #f0ece3; }
+.load-card li:last-child { border-bottom: none; }
+.load-card li i { color: var(--green); margin-right: 10px; font-size: 12px !important; }
+.step-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(201,168,76,0.2); border-radius: 4px; padding: 36px 28px; height: 100%; }
+.step-num { width: 48px; height: 48px; border-radius: 50%; background: var(--gold); color: var(--navy); font-weight: 800 !important; font-size: 20px !important; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+.step-card h3 { color: #fff; font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+.step-card p { color: rgba(255,255,255,0.6); font-size: 15px !important; line-height: 1.75; margin: 0; }
+.home-photo { width: 100%; border-radius: 4px; box-shadow: 0 8px 32px rgba(10,22,40,0.18); height: auto; }
+.home-photo-tall { max-width: 360px; }
+.delivery-photo { width: 100%; height: 260px; object-fit: cover; border-radius: 4px; border: 1px solid rgba(201,168,76,0.25); display: block; }
+.why-list li { display: flex; gap: 16px; padding: 12px 0; color: #444; font-size: 16px !important; line-height: 1.7; }
+.why-list li i { color: var(--green); font-size: 20px !important; margin-top: 4px; width: 24px; flex-shrink: 0; text-align: center; }
+.why-list strong { color: var(--navy); }
+.who-card { display: block; text-decoration: none !important; background: var(--cream); border-radius: 4px; padding: 32px 24px; height: 100%; text-align: center; border: 1px solid transparent; transition: border-color 0.25s, transform 0.25s; }
+.who-card:hover { border-color: var(--green); transform: translateY(-3px); }
+.who-card i { color: var(--green); font-size: 32px !important; margin-bottom: 16px; }
+.who-card h3 { color: var(--navy); font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+.who-card p { color: #666; font-size: 14px !important; margin: 0; }
+.home-faq details { border-bottom: 1px solid #e6e1d6; padding: 18px 0; }
+.home-faq summary { cursor: pointer; font-weight: 700; font-size: 18px !important; color: var(--navy); list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+.home-faq summary::-webkit-details-marker { display: none; }
+.home-faq summary::after { content: "+"; color: var(--green); font-size: 22px; line-height: 1; }
+.home-faq details[open] summary::after { content: "\2212"; }
+.home-faq details p { color: #555; margin: 12px 0 0; line-height: 1.8; }
+@media (max-width: 767px) {
+  .home-hero { min-height: 0; }
+  .load-card-num { font-size: 44px !important; }
 }
